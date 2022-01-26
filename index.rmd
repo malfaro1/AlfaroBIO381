@@ -8,4 +8,4 @@ output: html_document
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
-[Link to page](Newpage.html)
+[Link to other page](Newpage.html)

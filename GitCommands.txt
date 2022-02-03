@@ -3,3 +3,18 @@ git add -A #adds altered and untracked files to staging area
 git commit -am '<message>' #commit changes with message
 git push #push committed changes up to GitHub
 git pull #pull any changes from GitHub down to local repository
+
+git log #shows all past commits
+git log --oneline #shows all past commits but only takes up one line 
+git log -3 --oneline #shows past 3 in one line
+
+git reset #unstages after using git add -A
+git reset -- filename.txt #only unstages the specified doc
+git commit -m #only commits staged docs (a stands for "all")
+
+echo 'put desired text here' > filename.txt #replaces doc with new text
+echo 'put desired text here' >> filename.txt #adds text to end of doc
+cat filename.txt #shows file contents
+cat filename.txt > otherfile.txt #
+
+$ Ps1='$ ' #makes your terminal only have a $ per enter

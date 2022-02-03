@@ -171,7 +171,7 @@ pre code {
 </div>
 
 
-<p>##Problem 1</p>
+<p>#Problem 1</p>
 <pre><code>FIND: \h\h+
 REPLACE: ,</code></pre>
 <p>I used the h wildcard to find white spaces in 2 or more consecutive chunks that were not line breaks (s wildcard includes line breaks) and replaced them with commas.</p>
@@ -190,7 +190,7 @@ REPLACE: \2_\1\3</code></pre>
 <p>#Problem 5</p>
 <pre><code>FIND: (\w)\w+,(\w+),\d+.\d+(,\d+)
 REPLACE: \1_\2\3</code></pre>
-<p>I captured the first letter of the genus, the specific epithet, and the second number and left behind the rest and added an underscore. The result was:</p>
+<p>I captured the first letter of the genus, the specific epithet, and the second number and left behind the rest and added an underscore.</p>
 <p>#Problem 6</p>
 <pre><code>FIND: (\w)\w+,(\w{4})\w+,\d+.\d(,\d+)
 REPLACE: \1_\2\3</code></pre>

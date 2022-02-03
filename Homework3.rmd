@@ -46,7 +46,7 @@ I broke each line into 1. a numerical chunk with the d wildcard 2. the song titl
 FIND: (\w)\w+,(\w+),\d+.\d+(,\d+)
 REPLACE: \1_\2\3
 ```
-I captured the first letter of the genus, the specific epithet, and the second number and left behind the rest and added an underscore. The result was:
+I captured the first letter of the genus, the specific epithet, and the second number and left behind the rest and added an underscore.
 
 
 #Problem 6

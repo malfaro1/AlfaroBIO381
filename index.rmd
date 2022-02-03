@@ -9,3 +9,4 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 [Link to other page](Newpage.html)
+[Homework 3](Homework3.html)

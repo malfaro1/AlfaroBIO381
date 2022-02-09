@@ -1,0 +1,122 @@
+---
+title: "Homework 4"
+author: "Maria Alfaro"
+date: "2/9/2022"
+output:
+  prettydoc::html_pretty:
+    theme: leonids
+    highlight: github
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+[Home Page](index.html)
+
+## Problem 1
+```{r}
+x = 1
+a = 2.2
+b = 3.3
+```
+
+```{r}
+z = x^a^b
+print(z)
+
+```
+
+```{r}
+z = (x^a)^b
+print(z)
+
+```
+
+```{r}
+z = 3*(x^3) + 2*(x^2) + 1
+print(z)
+
+```
+
+## Problem 2
+```{r}
+s = c((seq(from=1,to=8)), (seq(from=7,to=1)))
+print(s)
+```
+
+```{r}
+s = c(rep(1,1),rep(2,2),rep(3,3),rep(4,4),rep(5,5))
+print(s)
+
+```
+
+```{r}
+s = c(rep(5,1),rep(4,2),rep(3,3),rep(2,4),rep(1,5))
+print(s)
+
+```
+
+## Problem 3
+
+```{r}
+n = c(runif(2))
+print(n)
+
+y = atan(n[2]/n[1])
+print(y)
+x = sqrt((n[1]^2)+(n[2]^2))
+print(x)
+
+```
+**x=r, y=theta**
+
+## Problem 4
+
+```{r}
+queue = c("sheep", "fox", "owl", "ant")
+
+```
+
+```{r}
+queue = append(queue, "serpent")
+
+```
+
+```{r}
+queue = queue[-1]
+
+```
+
+```{r}
+queue = append(queue, "donkey", after = 0)
+
+```
+
+```{r}
+queue = queue[-5]
+
+```
+
+```{r}
+queue = queue[-3]
+
+```
+
+```{r}
+queue = append(queue, "aphid", after = 2)
+
+```
+**The aphid is 3rd in line!**
+
+## Problem 5
+
+```{r}
+v = c(seq(from=1,to=100,by=1))
+
+v2 = which(v %% 3 != 0 & v %% 7 != 0 & v %%  2 != 0)
+
+print(v2)
+```
+
+

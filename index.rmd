@@ -1,7 +1,7 @@
 ---
 title: "BIOL381 Assignments"
 author: "Maria Alfaro"
-date: "1/26/2022"
+date: ""
 output:
   prettydoc::html_pretty:
     theme: leonids

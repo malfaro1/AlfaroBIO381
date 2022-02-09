@@ -36,5 +36,5 @@ knitr::opts_chunk$set(echo = TRUE)
 > dig it.
 
 ```
-This is text is in a box
+This text is in a box
 ```

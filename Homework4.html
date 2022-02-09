@@ -147,6 +147,10 @@ a.sourceLine {
 <p><a href="index.html">Home Page</a></p>
 <div id="problem-1" class="section level2">
 <h2>Problem 1</h2>
+<p><strong>Suppose x = 1.1, a = 2.2, and b = 3.3. Assign each expression to the value of the variable z and print the value stored in z.</strong></p>
+<p>x<sup>a</sup>b<br />
+(xa)^b<br />
+3x<sup>3+2x</sup>2+1</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">=</span> <span class="dv">1</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>a <span class="ot">=</span> <span class="fl">2.2</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>b <span class="ot">=</span> <span class="fl">3.3</span></span></code></pre></div>
@@ -162,6 +166,10 @@ a.sourceLine {
 </div>
 <div id="problem-2" class="section level2">
 <h2>Problem 2</h2>
+<p>**Using the rep and seq functions, create the following vectors:</p>
+<p>(1,2,3,4,5,6,7,8,7,6,5,4,3,2,1)<br />
+(1,2,2,3,3,3,4,4,4,4,5,5,5,5,5)<br />
+(5,4,4,3,3,3,2,2,2,2,1,1,1,1,1)**</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>s <span class="ot">=</span> <span class="fu">c</span>((<span class="fu">seq</span>(<span class="at">from=</span><span class="dv">1</span>,<span class="at">to=</span><span class="dv">8</span>)), (<span class="fu">seq</span>(<span class="at">from=</span><span class="dv">7</span>,<span class="at">to=</span><span class="dv">1</span>)))</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(s)</span></code></pre></div>
 <pre><code>##  [1] 1 2 3 4 5 6 7 8 7 6 5 4 3 2 1</code></pre>
@@ -174,35 +182,59 @@ a.sourceLine {
 </div>
 <div id="problem-3" class="section level2">
 <h2>Problem 3</h2>
+<p><strong>Create a vector of two random uniform numbers. In a spatial map, these can be interpreted as x and y coordinates that give the location of an individual (such as a marked forest tree in a plot that has been mapped). Using one of R’s inverse trigonometry functions (asin(), acos(), or atan()), convert these numbers into polar coordinates.</strong></p>
 <div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>n <span class="ot">=</span> <span class="fu">c</span>(<span class="fu">runif</span>(<span class="dv">2</span>))</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(n)</span></code></pre></div>
-<pre><code>## [1] 0.9380533 0.2940732</code></pre>
+<pre><code>## [1] 0.7273111 0.6777043</code></pre>
 <div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>y <span class="ot">=</span> <span class="fu">atan</span>(n[<span class="dv">2</span>]<span class="sc">/</span>n[<span class="dv">1</span>])</span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(y)</span></code></pre></div>
-<pre><code>## [1] 0.3037893</code></pre>
+<pre><code>## [1] 0.7501059</code></pre>
 <div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">=</span> <span class="fu">sqrt</span>((n[<span class="dv">1</span>]<span class="sc">^</span><span class="dv">2</span>)<span class="sc">+</span>(n[<span class="dv">2</span>]<span class="sc">^</span><span class="dv">2</span>))</span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(x)</span></code></pre></div>
-<pre><code>## [1] 0.9830682</code></pre>
+<pre><code>## [1] 0.994115</code></pre>
 <p><strong>x=r, y=theta</strong></p>
 </div>
 <div id="problem-4" class="section level2">
 <h2>Problem 4</h2>
-<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>queue <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;sheep&quot;</span>, <span class="st">&quot;fox&quot;</span>, <span class="st">&quot;owl&quot;</span>, <span class="st">&quot;ant&quot;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>queue <span class="ot">=</span> <span class="fu">append</span>(queue, <span class="st">&quot;serpent&quot;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>queue <span class="ot">=</span> queue[<span class="sc">-</span><span class="dv">1</span>]</span></code></pre></div>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>queue <span class="ot">=</span> <span class="fu">append</span>(queue, <span class="st">&quot;donkey&quot;</span>, <span class="at">after =</span> <span class="dv">0</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>queue <span class="ot">=</span> queue[<span class="sc">-</span><span class="dv">5</span>]</span></code></pre></div>
-<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>queue <span class="ot">=</span> queue[<span class="sc">-</span><span class="dv">3</span>]</span></code></pre></div>
-<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>queue <span class="ot">=</span> <span class="fu">append</span>(queue, <span class="st">&quot;aphid&quot;</span>, <span class="at">after =</span> <span class="dv">2</span>)</span></code></pre></div>
+<p><strong>Create a vector queue &lt;- c(“sheep”, “fox”, “owl”, “ant”) where queue represents the animals that are lined up to enter Noah’s Ark, with the sheep at the front of the line. Using R expressions, update queue as:</strong></p>
+<p>the serpent arrives and gets in line;<br />
+the sheep enters the ark;<br />
+the donkey arrives and talks his way to the front of the line;<br />
+the serpent gets impatient and leaves;<br />
+the owl gets bored and leaves;<br />
+the aphid arrives and the ant invites him to cut in line.<br />
+Finally, determine the position of the aphid in the line.</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>queue <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;sheep&quot;</span>, <span class="st">&quot;fox&quot;</span>, <span class="st">&quot;owl&quot;</span>, <span class="st">&quot;ant&quot;</span>)</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(queue)</span></code></pre></div>
+<pre><code>## [1] &quot;sheep&quot; &quot;fox&quot;   &quot;owl&quot;   &quot;ant&quot;</code></pre>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>queue <span class="ot">=</span> <span class="fu">append</span>(queue, <span class="st">&quot;serpent&quot;</span>)</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(queue)</span></code></pre></div>
+<pre><code>## [1] &quot;sheep&quot;   &quot;fox&quot;     &quot;owl&quot;     &quot;ant&quot;     &quot;serpent&quot;</code></pre>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>queue <span class="ot">=</span> queue[<span class="sc">-</span><span class="dv">1</span>]</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(queue)</span></code></pre></div>
+<pre><code>## [1] &quot;fox&quot;     &quot;owl&quot;     &quot;ant&quot;     &quot;serpent&quot;</code></pre>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>queue <span class="ot">=</span> <span class="fu">append</span>(queue, <span class="st">&quot;donkey&quot;</span>, <span class="at">after =</span> <span class="dv">0</span>)</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(queue)</span></code></pre></div>
+<pre><code>## [1] &quot;donkey&quot;  &quot;fox&quot;     &quot;owl&quot;     &quot;ant&quot;     &quot;serpent&quot;</code></pre>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>queue <span class="ot">=</span> queue[<span class="sc">-</span><span class="dv">5</span>]</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(queue)</span></code></pre></div>
+<pre><code>## [1] &quot;donkey&quot; &quot;fox&quot;    &quot;owl&quot;    &quot;ant&quot;</code></pre>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>queue <span class="ot">=</span> queue[<span class="sc">-</span><span class="dv">3</span>]</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(queue)</span></code></pre></div>
+<pre><code>## [1] &quot;donkey&quot; &quot;fox&quot;    &quot;ant&quot;</code></pre>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>queue <span class="ot">=</span> <span class="fu">append</span>(queue, <span class="st">&quot;aphid&quot;</span>, <span class="at">after =</span> <span class="dv">2</span>)</span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(queue)</span></code></pre></div>
+<pre><code>## [1] &quot;donkey&quot; &quot;fox&quot;    &quot;aphid&quot;  &quot;ant&quot;</code></pre>
 <p><strong>The aphid is 3rd in line!</strong></p>
 </div>
 <div id="problem-5" class="section level2">
 <h2>Problem 5</h2>
-<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>v <span class="ot">=</span> <span class="fu">c</span>(<span class="fu">seq</span>(<span class="at">from=</span><span class="dv">1</span>,<span class="at">to=</span><span class="dv">100</span>,<span class="at">by=</span><span class="dv">1</span>))</span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>v2 <span class="ot">=</span> <span class="fu">which</span>(v <span class="sc">%%</span> <span class="dv">3</span> <span class="sc">!=</span> <span class="dv">0</span> <span class="sc">&amp;</span> v <span class="sc">%%</span> <span class="dv">7</span> <span class="sc">!=</span> <span class="dv">0</span> <span class="sc">&amp;</span> v <span class="sc">%%</span>  <span class="dv">2</span> <span class="sc">!=</span> <span class="dv">0</span>)</span>
-<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(v2)</span></code></pre></div>
+<p><strong>Use R to create a vector of all of the integers from 1 to 100 that are not divisible by 2, 3, or 7.</strong></p>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>v <span class="ot">=</span> <span class="fu">c</span>(<span class="fu">seq</span>(<span class="at">from=</span><span class="dv">1</span>,<span class="at">to=</span><span class="dv">100</span>,<span class="at">by=</span><span class="dv">1</span>))</span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>v2 <span class="ot">=</span> <span class="fu">which</span>(v <span class="sc">%%</span> <span class="dv">3</span> <span class="sc">!=</span> <span class="dv">0</span> <span class="sc">&amp;</span> v <span class="sc">%%</span> <span class="dv">7</span> <span class="sc">!=</span> <span class="dv">0</span> <span class="sc">&amp;</span> v <span class="sc">%%</span>  <span class="dv">2</span> <span class="sc">!=</span> <span class="dv">0</span>)</span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(v2)</span></code></pre></div>
 <pre><code>##  [1]  1  5 11 13 17 19 23 25 29 31 37 41 43 47 53 55 59 61 65 67 71 73 79 83 85
 ## [26] 89 95 97</code></pre>
 </div>

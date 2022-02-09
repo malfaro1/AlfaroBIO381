@@ -15,6 +15,12 @@ knitr::opts_chunk$set(echo = TRUE)
 [Home Page](index.html)
 
 ## Problem 1
+**Suppose x = 1.1, a = 2.2, and b = 3.3. Assign each expression to the value of the variable z and print the value stored in z.**
+
+x^a^b   
+(xa)^b   
+3x^3+2x^2+1
+
 ```{r}
 x = 1
 a = 2.2
@@ -40,6 +46,12 @@ print(z)
 ```
 
 ## Problem 2
+**Using the rep and seq functions, create the following vectors:
+
+(1,2,3,4,5,6,7,8,7,6,5,4,3,2,1)   
+(1,2,2,3,3,3,4,4,4,4,5,5,5,5,5)   
+(5,4,4,3,3,3,2,2,2,2,1,1,1,1,1)**
+
 ```{r}
 s = c((seq(from=1,to=8)), (seq(from=7,to=1)))
 print(s)
@@ -58,6 +70,7 @@ print(s)
 ```
 
 ## Problem 3
+**Create a vector of two random uniform numbers. In a spatial map, these can be interpreted as x and y coordinates that give the location of an individual (such as a marked forest tree in a plot that has been mapped). Using one of R’s inverse trigonometry functions (asin(), acos(), or atan()), convert these numbers into polar coordinates.**
 
 ```{r}
 n = c(runif(2))
@@ -72,44 +85,61 @@ print(x)
 **x=r, y=theta**
 
 ## Problem 4
+**Create a vector queue <- c("sheep", "fox", "owl", "ant") where queue represents the animals that are lined up to enter Noah’s Ark, with the sheep at the front of the line. Using R expressions, update queue as:**
+
+the serpent arrives and gets in line;   
+the sheep enters the ark;   
+the donkey arrives and talks his way to the front of the line;   
+the serpent gets impatient and leaves;   
+the owl gets bored and leaves;   
+the aphid arrives and the ant invites him to cut in line.   
+Finally, determine the position of the aphid in the line.
 
 ```{r}
 queue = c("sheep", "fox", "owl", "ant")
+print(queue)
 
 ```
 
 ```{r}
 queue = append(queue, "serpent")
+print(queue)
 
 ```
 
 ```{r}
 queue = queue[-1]
+print(queue)
 
 ```
 
 ```{r}
 queue = append(queue, "donkey", after = 0)
+print(queue)
 
 ```
 
 ```{r}
 queue = queue[-5]
+print(queue)
 
 ```
 
 ```{r}
 queue = queue[-3]
+print(queue)
 
 ```
 
 ```{r}
 queue = append(queue, "aphid", after = 2)
+print(queue)
 
 ```
 **The aphid is 3rd in line!**
 
 ## Problem 5
+**Use R to create a vector of all of the integers from 1 to 100 that are not divisible by 2, 3, or 7.**
 
 ```{r}
 v = c(seq(from=1,to=100,by=1))
@@ -118,5 +148,8 @@ v2 = which(v %% 3 != 0 & v %% 7 != 0 & v %%  2 != 0)
 
 print(v2)
 ```
+
+
+
 
 

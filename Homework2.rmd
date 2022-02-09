@@ -1,0 +1,40 @@
+---
+title: "Homework 2"
+author: "Maria Alfaro"
+date: "1/26/2022"
+output:
+  prettydoc::html_pretty:
+    theme: leonids
+    highlight: github
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+[Home Page](index.html)
+
+# Header 1
+## Header 2
+### Header 3
+
+*italic* _italic_
+**bold** __bold__
+
+* Bullet 1
+* Bullet 2
+    + Item 1
+    + Item 2
+
+1. List 1
+2. List 2
+3. List 3
+    + Item 1
+    + Item 2
+
+> Life's a garden,
+> dig it.
+
+```
+This is text is in a box
+```

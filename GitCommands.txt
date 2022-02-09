@@ -17,4 +17,4 @@ echo 'put desired text here' >> filename.txt #adds text to end of doc
 cat filename.txt #shows file contents
 cat filename.txt > otherfile.txt #
 
-$ Ps1='$ ' #makes your terminal only have a $ per enter
+$ PS1='$ ' #makes your terminal only have a $ per enter

@@ -1,12 +1,19 @@
 ---
-title: "My website"
+title: "BIOL381 Assignments"
 author: "Maria Alfaro"
 date: "1/26/2022"
-output: html_document
+output:
+  prettydoc::html_pretty:
+    theme: leonids
+    highlight: github
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
-[Link to other page](Newpage.html)
+
+## Homework Assignments
+
+[Homework 2](Homework2.html)
+
 [Homework 3](Homework3.html)

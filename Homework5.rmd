@@ -1,0 +1,100 @@
+---
+title: "Homework 5"
+author: "Maria Alfaro"
+date: "2/16/2022"
+output:
+  prettydoc::html_pretty:
+    theme: leonids
+    highlight: github
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+[Home Page](index.html)
+
+## Problem 1
+
+```{r}
+n_dims = floor(runif(1, min=3, max=10))
+
+vector = c(seq(1,n_dims^2))
+
+vector = sample(vector)
+
+matrix = matrix(data=vector, nrow=n_dims)
+print(matrix)
+
+t(matrix)
+print(matrix)
+
+sum(matrix[1,])
+sum(matrix[4,])
+
+mean(matrix[1,])
+mean(matrix[4,])
+
+matrix_eigen = eigen(matrix, isSymmetric(matrix), only.values = FALSE, EISPACK = FALSE)
+
+matrix_eigen$values
+matrix_eigen$vectors
+
+typeof(matrix_eigen$values)
+typeof(matrix_eigen$vectors)
+
+  
+```
+
+## Problem 2
+
+```{r}
+my_matrix = matrix(runif(16), nrow =4)
+print(my_matrix)
+
+my_logical = runif(100)
+my_logical = my_logical > 0.5
+
+my_letters = letters
+sample(my_letters)
+
+new_list = list(my_matrix[2,2],
+                my_logical[2],
+                my_letters[2])
+
+print(new_list)
+
+typeof(new_list[[1]])
+typeof(new_list[[2]])
+typeof(new_list[[3]])
+
+unrolled_list = unlist(new_list)
+typeof(unrolled_list)
+
+
+```
+
+## Problem 3
+
+```{r}
+
+my_unis = runif(26,min=0,max=10)
+my_letters = LETTERS
+my_letters = sample(my_letters)
+
+dframe = data.frame(my_unis, my_letters)
+print(dframe)
+
+dframe$my_unis[sample(nrow(dframe),4)] = NA
+print(dframe)
+
+which(is.na(dframe))
+
+dframe$my_letters = sort(dframe$my_letters)
+print(dframe)
+
+mean(my_unis, na.rm=TRUE)
+
+
+```
+

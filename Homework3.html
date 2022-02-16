@@ -54,8 +54,6 @@
 <p><a href="index.html">Home Page</a></p>
 <div id="problem-1" class="section level2">
 <h2>Problem 1</h2>
-<p><strong>The primary reason for using Excel to set up data frames is that people like to have the columns aligned. However, if there are not too many columns, it may be faster to do the job in a plain text editor first and align the columns with tabs. In your text editor, type in (or copy and paste from here) the following lines of text:</strong> First String Second 1.22 3.4 Second More Text 1.555555 2.2220 Third x 3 124</p>
-<p><strong>Don’t worry about how many tab spaces are needed to set this up, just make sure the columns are aligned. Now, using a single regular expression, transform these lines into what we need for a proper .csv file:</strong> First String,Second,1.22,3.4 Second,More Text,1.555555,2.2220 Third,x,3,124</p>
 <pre><code>FIND: \h\h+
 REPLACE: ,</code></pre>
 <p>I used the h wildcard to find white spaces in 2 or more consecutive chunks that were not line breaks (s wildcard includes line breaks) and replaced them with commas.</p>

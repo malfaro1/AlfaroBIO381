@@ -1,0 +1,110 @@
+---
+title: "Homework 6"
+author: "Maria Alfaro"
+date: "2/23/2022"
+output:
+  prettydoc::html_pretty:
+    theme: leonids
+    highlight: github
+---
+
+```{r}
+library(ggplot2)
+library(MASS)
+library(tidyverse)
+
+z = read_csv("LTER_RandomLake.csv")
+str(z)
+summary(z)
+
+```
+
+## Plot histogram of data
+```{r}
+p1 = ggplot(data=z[which(z$pH>-900),], aes(x=pH, y=..density..)) +
+  geom_histogram(color="grey60",fill="cornsilk",size=0.2) 
+print(p1)
+```
+## Add empirical density curve
+```{r}
+p1 =  p1 +  geom_density(linetype="dotted",size=0.75)
+print(p1)
+```
+## Get maximum likelihood parameters for normal
+```{r}
+normPars = fitdistr(z$pH,"normal")
+print(normPars)
+str(normPars)
+normPars$estimate["mean"]
+```
+## Plot normal probability density
+```{r}
+meanML = normPars$estimate["mean"]
+sdML = normPars$estimate["sd"]
+
+xval = seq(0,max(z$pH),len=length(z$pH))
+
+stat = stat_function(aes(x = xval, y = ..y..), fun = dnorm, colour="red", n = length(z$pH), args = list(mean = meanML, sd = sdML))
+p1 + stat
+```
+## Plot exponential probability density
+```{r}
+expoPars = fitdistr(z$pH,"exponential")
+rateML = expoPars$estimate["rate"]
+
+stat2 = stat_function(aes(x = xval, y = ..y..), fun = dexp, colour="blue", n = length(z$pH), args = list(rate=rateML))
+p1 + stat + stat2
+```
+## Plot uniform probability density
+```{r}
+stat3 = stat_function(aes(x = xval, y = ..y..), fun = dunif, colour="darkgreen", n = length(z$pH), args = list(min=min(z$pH), max=max(z$pH)))
+p1 + stat + stat2 + stat3
+```
+## Plot gamma probability density
+```{r}
+gammaPars = fitdistr(z$pH,"gamma")
+shapeML = gammaPars$estimate["shape"]
+rateML = gammaPars$estimate["rate"]
+
+stat4 = stat_function(aes(x = xval, y = ..y..), fun = dgamma, colour="brown", n = length(z$pH), args = list(shape=shapeML, rate=rateML))
+p1 + stat + stat2 + stat3 + stat4
+```
+## Plot beta probability
+```{r}
+pSpecial = ggplot(data=z, aes(x=pH/(max(pH + 0.1)), y=..density..)) +
+  geom_histogram(color="grey60",fill="cornsilk",size=0.2) + 
+  xlim(c(0,1)) +
+  geom_density(size=0.75,linetype="dotted")
+
+betaPars = fitdistr(x=z$pH/max(z$pH + 0.1),start=list(shape1=1,shape2=2),"beta")
+shape1ML = betaPars$estimate["shape1"]
+shape2ML = betaPars$estimate["shape2"]
+
+statSpecial = stat_function(aes(x = xval, y = ..y..), fun = dbeta, colour="orchid", n = length(z$pH), args = list(shape1=shape1ML,shape2=shape2ML))
+pSpecial + statSpecial
+
+```
+
+## Find best-fitting distribution
+```{r}
+meanML = normPars$estimate["mean"]
+sdML = normPars$estimate["sd"]
+
+normal = data.frame(normie=rnorm(181,mean=meanML,sd=sdML))
+normal
+
+normplot = ggplot(data=normal, aes(x=normie, y=..density..)) +
+  geom_histogram(color="grey60",fill="cornsilk",size=0.2) 
+print(normplot)
+
+normstat = stat_function(aes(x = xval, y = ..y..), fun = dnorm, colour="red", n = length(normal$normie), args = list(mean = meanML, sd = sdML))
+normplot + normstat
+
+p1 + stat
+
+```
+
+## How do the two histogram profiles compare? Do you think the model is doing a good job of simulating realistic data that match your original measurements? Why or why not?
+
+It actually does a pretty good job! pH must be pretty "normal" ;)
+

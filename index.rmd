@@ -8,9 +8,6 @@ output:
     highlight: github
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
 
 ## Homework Assignments
 
@@ -23,3 +20,5 @@ knitr::opts_chunk$set(echo = TRUE)
 [Homework 5](Homework5.html)
 
 [Homework 6](Homework6.html)
+
+[Homework 7](Homework7.html)

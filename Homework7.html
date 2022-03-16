@@ -179,30 +179,38 @@ a.sourceLine {
 </div>
 <div id="create-an-iris3-data-frame-from-iris2-that-orders-the-observations-from-largest-to-smallest-sepal-length.-show-the-first-6-rows-of-this-dataset." class="section level2">
 <h2>4. Create an iris3 data frame from iris2 that orders the observations from largest to smallest sepal length. Show the first 6 rows of this dataset.</h2>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>iris3 <span class="ot">=</span> <span class="fu">arrange</span>(iris2, <span class="at">by=</span><span class="fu">desc</span>(Sepal.Length))</span></code></pre></div>
-<p>56 observations and 3 variables</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>iris3 <span class="ot">=</span> <span class="fu">arrange</span>(iris2, <span class="at">by=</span><span class="fu">desc</span>(Sepal.Length))</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(iris3)</span></code></pre></div>
+<pre><code>##     Species Sepal.Length Sepal.Width
+## 1 virginica          7.9         3.8
+## 2 virginica          7.7         3.8
+## 3 virginica          7.7         2.6
+## 4 virginica          7.7         2.8
+## 5 virginica          7.7         3.0
+## 6 virginica          7.6         3.0</code></pre>
 </div>
 <div id="create-an-iris4-data-frame-from-iris3-that-creates-a-column-with-a-sepal-area-length-width-value-for-each-observation.-how-many-observations-and-variables-are-in-the-dataset" class="section level2">
 <h2>5. Create an iris4 data frame from iris3 that creates a column with a sepal area (length * width) value for each observation. How many observations and variables are in the dataset?</h2>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>iris4 <span class="ot">=</span> <span class="fu">mutate</span>(iris3, <span class="at">Sepal.Area=</span>Sepal.Length<span class="sc">*</span>Sepal.Width)</span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>iris4 <span class="ot">=</span> <span class="fu">mutate</span>(iris3, <span class="at">Sepal.Area=</span>Sepal.Length<span class="sc">*</span>Sepal.Width)</span></code></pre></div>
 <p>56 observations of 4 variables</p>
 </div>
 <div id="create-iris5-that-calculates-the-average-sepal-length-the-average-sepal-width-and-the-sample-size-of-the-entire-iris4-data-frame-and-print-iris5." class="section level2">
 <h2>6. Create iris5 that calculates the average sepal length, the average sepal width, and the sample size of the entire iris4 data frame and print iris5.</h2>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>iris5 <span class="ot">=</span> <span class="fu">summarize</span>(iris4, <span class="at">meanSepalLength =</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">mean</span>(Sepal.Length), <span class="at">meanSepalWidth =</span> <span class="fu">mean</span>(Sepal.Width), <span class="at">N=</span><span class="fu">n</span>())</span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(iris5)</span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>iris5 <span class="ot">=</span> <span class="fu">summarize</span>(iris4, <span class="at">meanSepalLength =</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">mean</span>(Sepal.Length), <span class="at">meanSepalWidth =</span> <span class="fu">mean</span>(Sepal.Width), <span class="at">N=</span><span class="fu">n</span>())</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(iris5)</span></code></pre></div>
 <pre><code>##   meanSepalLength meanSepalWidth  N
 ## 1        6.698214       3.041071 56</code></pre>
 </div>
 <div id="finally-create-iris6-that-calculates-the-average-sepal-length-the-average-sepal-width-and-the-sample-size-for-each-species-of-in-the-iris4-data-frame-and-print-iris6." class="section level2">
 <h2>7. Finally, create iris6 that calculates the average sepal length, the average sepal width, and the sample size for each species of in the iris4 data frame and print iris6.</h2>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>iris6 <span class="ot">=</span> iris4 <span class="sc">%&gt;%</span></span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Species) <span class="sc">%&gt;%</span></span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">meanSepalLength =</span></span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">mean</span>(Sepal.Length), <span class="at">meanSepalWidth =</span> <span class="fu">mean</span>(Sepal.Width), <span class="at">N=</span><span class="fu">n</span>())</span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(iris6)</span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>iris6 <span class="ot">=</span> iris4 <span class="sc">%&gt;%</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Species) <span class="sc">%&gt;%</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">meanSepalLength =</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">mean</span>(Sepal.Length), <span class="at">meanSepalWidth =</span> <span class="fu">mean</span>(Sepal.Width), <span class="at">N=</span><span class="fu">n</span>())</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(iris6)</span></code></pre></div>
 <pre><code>## # A tibble: 2 x 4
 ##   Species    meanSepalLength meanSepalWidth     N
 ##   &lt;fct&gt;                &lt;dbl&gt;          &lt;dbl&gt; &lt;int&gt;
@@ -211,20 +219,20 @@ a.sourceLine {
 </div>
 <div id="in-these-exercises-you-have-successively-modified-different-versions-of-the-data-frame-iris1-iris1-iris3-iris4-iris5-iris6.-at-each-stage-the-output-data-frame-from-one-operation-serves-as-the-input-fro-the-next.-a-more-efficient-way-to-do-this-is-to-use-the-pipe-operator-from-the-tidyr-package.-see-if-you-can-rework-all-of-your-previous-statements-into-an-extended-piping-operation-that-uses-iris-as-the-input-and-generates-iris6-as-the-output." class="section level2">
 <h2>8. In these exercises, you have successively modified different versions of the data frame iris1 iris1 iris3 iris4 iris5 iris6. At each stage, the output data frame from one operation serves as the input fro the next. A more efficient way to do this is to use the pipe operator %&gt;% from the tidyr package. See if you can rework all of your previous statements into an extended piping operation that uses iris as the input and generates iris6 as the output.</h2>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>iris7 <span class="ot">=</span> iris <span class="sc">%&gt;%</span></span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Species) <span class="sc">%&gt;%</span></span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">meanSepalLength =</span></span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">mean</span>(Sepal.Length), <span class="at">meanSepalWidth =</span> <span class="fu">mean</span>(Sepal.Width), <span class="at">N=</span><span class="fu">n</span>()) <span class="sc">%&gt;%</span></span>
-<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Species,meanSepalLength,meanSepalWidth,N) <span class="sc">%&gt;%</span></span>
-<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Species <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;virginica&quot;</span>,<span class="st">&quot;versicolor&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>iris7 <span class="ot">=</span> iris <span class="sc">%&gt;%</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Species) <span class="sc">%&gt;%</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">meanSepalLength =</span></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">mean</span>(Sepal.Length), <span class="at">meanSepalWidth =</span> <span class="fu">mean</span>(Sepal.Width), <span class="at">N=</span><span class="fu">n</span>()) <span class="sc">%&gt;%</span></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Species,meanSepalLength,meanSepalWidth,N) <span class="sc">%&gt;%</span></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Species <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;virginica&quot;</span>,<span class="st">&quot;versicolor&quot;</span>))</span></code></pre></div>
 </div>
 <div id="create-a-longer-data-frame-with-three-columns-named-species-measure-value.-the-column-species-will-retain-the-species-names-of-the-data-set.-the-column-measure-will-include-whether-the-value-corresponds-to-sepal.length-sepal.width-petal.length-or-petal.width-and-the-column-value-will-include-the-numerical-values-of-those-measurements." class="section level2">
 <h2>9. Create a ‘longer’ data frame with three columns named: Species, Measure, Value. The column “Species” will retain the species names of the data set. The column “Measure” will include whether the value corresponds to Sepal.Length, Sepal.Width, Petal.Length, or Petal.Width and the column “Value” will include the numerical values of those measurements.</h2>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>iris8 <span class="ot">=</span> iris <span class="sc">%&gt;%</span></span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols=</span>Sepal.Length<span class="sc">:</span>Petal.Width,</span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>               <span class="at">names_to =</span> <span class="st">&quot;Measure&quot;</span>,</span>
-<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>               <span class="at">values_to =</span> <span class="st">&quot;Value&quot;</span>,</span>
-<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>               <span class="at">values_drop_na =</span> T)</span></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>iris8 <span class="ot">=</span> iris <span class="sc">%&gt;%</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols=</span>Sepal.Length<span class="sc">:</span>Petal.Width,</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>               <span class="at">names_to =</span> <span class="st">&quot;Measure&quot;</span>,</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>               <span class="at">values_to =</span> <span class="st">&quot;Value&quot;</span>,</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>               <span class="at">values_drop_na =</span> T)</span></code></pre></div>
 </div>
 </article>
 </div>

@@ -41,8 +41,10 @@ iris2 = select(iris1, Species, Sepal.Length, Sepal.Width)
 
 ```{r}
 iris3 = arrange(iris2, by=desc(Sepal.Length))
+
+head(iris3)
 ```
-56 observations and 3 variables
+
 
 ## 5. Create an iris4 data frame from iris3 that creates a column with a sepal area (length * width) value for each observation. How many observations and variables are in the dataset?
 

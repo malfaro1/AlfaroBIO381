@@ -1,0 +1,91 @@
+---
+title: "Homework 9"
+author: "Maria Alfaro"
+date: "3/23/2022"
+output:
+  prettydoc::html_pretty:
+    theme: leonids
+    highlight: github
+---
+
+[Home Page](index.html)
+
+#### 1. Use the code that you worked on in Homework #8 (creating fake data sets), and re-organize it following the principles of structured programming. Do all the work in a single chunk in your R markdown file, just as if you were writing a single R script. Start with all of your annotated functions, preliminary calls, and global variables. The program body should be only a few lines of code that call the appropriate functions and run them in the correct order. Make sure that the output from one function serves as the input to the next. You can either daisy-chain the functions or write separate lines of code to hold elements in temporary variables and pass them along.
+
+##### Precalculations for shape and scale using mean and variance
+**because:**
+# mean=shape*scale
+**then:**
+# shape = mean/scale
+# scale = mean/shape
+
+**because:**
+$$
+variance=shape*scale^2
+$$
+**then:**
+$$
+scale = sqrt(variance/shape)
+$$
+**replace scale with above equation:**
+$$
+mean/shape = sqrt(variance/shape)
+$$
+**isolate shape:**
+$$
+mean^2/shape^2 = variance/shape
+$$
+$$
+(mean^2 * shape)/shape^2 = variance
+$$
+$$
+mean^2 / shape = variance
+$$
+$$
+shape = mean^2 / variance
+$$
+
+```{r}
+
+# Global variables ---------------------------
+library(tidyverse)
+n_group = 4
+n_name = c("Control","Fe","Fe, P, N", "P, N")
+n_size = c(12,12,12,12)
+n_mean = c(1.2,1.3,5.7,3.0)
+n_sd = c(0.05,0.05,0.75,0.3)
+
+shape1 = n_mean[1]^2*n_sd[1]
+shape2 = n_mean[2]^2*n_sd[2]
+shape3 = n_mean[3]^2*n_sd[3]
+shape4 = n_mean[4]^2*n_sd[4]
+
+scale1 = n_mean[1]/shape1
+scale2 = n_mean[2]/shape2
+scale3 = n_mean[3]/shape3
+scale4 = n_mean[4]/shape4
+
+n_shape = c(shape1,shape2,shape3,shape4)
+n_scale = c(scale1,scale2,scale3,scale4)
+
+
+# ----------------------------------------
+# FUNCTION sim_data
+# description: description
+# inputs: sample size, means, sdeviations
+# outputs: data frame
+##########################################
+sim_data = function(size=n_size,shape=n_shape,scale=n_scale) {
+  d_frame = data.frame(varA=rgamma(n=size[1],shape=shape[1],scale=scale[1]),
+                       varB=rgamma(n=size[2],shape=shape[2],scale=scale[2]),
+                       varC=rgamma(n=size[3],shape=shape[3],scale=scale[3]),
+                       varD=rgamma(n=size[4],shape=shape[4],scale=scale[4]))
+  return(d_frame)
+}
+
+# ----------------------------------------
+
+sim_data()
+
+```
+

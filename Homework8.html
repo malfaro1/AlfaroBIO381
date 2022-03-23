@@ -13,11 +13,104 @@
 <meta name="author" content="Maria Alfaro" />
 
 
-<title>BIOL381 Assignments</title>
+<title>Homework 8</title>
 
 <script src="data:application/javascript;base64,Ly8gUGFuZG9jIDIuOSBhZGRzIGF0dHJpYnV0ZXMgb24gYm90aCBoZWFkZXIgYW5kIGRpdi4gV2UgcmVtb3ZlIHRoZSBmb3JtZXIgKHRvCi8vIGJlIGNvbXBhdGlibGUgd2l0aCB0aGUgYmVoYXZpb3Igb2YgUGFuZG9jIDwgMi44KS4KZG9jdW1lbnQuYWRkRXZlbnRMaXN0ZW5lcignRE9NQ29udGVudExvYWRlZCcsIGZ1bmN0aW9uKGUpIHsKICB2YXIgaHMgPSBkb2N1bWVudC5xdWVyeVNlbGVjdG9yQWxsKCJkaXYuc2VjdGlvbltjbGFzcyo9J2xldmVsJ10gPiA6Zmlyc3QtY2hpbGQiKTsKICB2YXIgaSwgaCwgYTsKICBmb3IgKGkgPSAwOyBpIDwgaHMubGVuZ3RoOyBpKyspIHsKICAgIGggPSBoc1tpXTsKICAgIGlmICghL15oWzEtNl0kL2kudGVzdChoLnRhZ05hbWUpKSBjb250aW51ZTsgIC8vIGl0IHNob3VsZCBiZSBhIGhlYWRlciBoMS1oNgogICAgYSA9IGguYXR0cmlidXRlczsKICAgIHdoaWxlIChhLmxlbmd0aCA+IDApIGgucmVtb3ZlQXR0cmlidXRlKGFbMF0ubmFtZSk7CiAgfQp9KTsK"></script>
 
 
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css" data-origin="pandoc">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+
+/* A workaround for https://github.com/jgm/pandoc/issues/4278 */
+a.sourceLine {
+  pointer-events: auto;
+}
+
+</style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    for (var j = 0; j < rules.length; j++) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") continue;
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' && rule.style.backgroundColor === '') continue;
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
 
 
 
@@ -38,8 +131,9 @@
 <div class="col s12 m3">
 <div class="table cover">
 <div class="cover-card table-cell table-middle">
-<span class="author_name">BIOL381 Assignments</span>
+<span class="author_name">Homework 8</span>
 <span class="author_bio mbm">Maria Alfaro</span>
+<span class="author_bio mbm">3/16/2022</span>
 </div>
 </div>
 </div>
@@ -50,15 +144,349 @@
 
 <div id="post">
 <article class="post-content">
-<div id="homework-assignments" class="section level2">
-<h2>Homework Assignments</h2>
-<p><a href="Homework2.html">Homework 2</a></p>
-<p><a href="Homework3.html">Homework 3</a></p>
-<p><a href="Homework4.html">Homework 4</a></p>
-<p><a href="Homework5.html">Homework 5</a></p>
-<p><a href="Homework6.html">Homework 6</a></p>
-<p><a href="Homework7.html">Homework 7</a></p>
-<p><a href="Homework8.html">Homework 8</a></p>
+<p><a href="index.html">Home Page</a></p>
+<div id="think-about-an-ongoing-study-in-your-lab-or-a-paper-you-have-read-in-a-different-class-and-decide-on-a-pattern-that-you-might-expect-in-your-experiment-if-a-specific-hypothesis-were-true." class="section level3">
+<h3>1. Think about an ongoing study in your lab (or a paper you have read in a different class), and decide on a pattern that you might expect in your experiment if a specific hypothesis were true.</h3>
+<p>I’m using a paper I read recently related to my research. To narrow the scope for the purpose of this assignment, I’ll focus on the effect of iron (Fe), phosphorus (P), and nitrogen (N) enrichment in a lake experiment on chlorophyll-a concentrations. <a href="https://aslopubs.onlinelibrary.wiley.com/doi/pdfdirect/10.4319/lo.2007.52.1.0315">North et al. 2007</a></p>
+</div>
+<div id="to-start-simply-assume-that-the-data-in-each-of-your-treatment-groups-follow-a-normal-distribution.-specify-the-sample-sizes-means-and-variances-for-each-group-that-would-be-reasonable-if-your-hypothesis-were-true.-you-may-need-to-consult-some-previous-literature-andor-an-expert-in-the-field-to-come-up-with-these-numbers." class="section level3">
+<h3>2. To start simply, assume that the data in each of your treatment groups follow a normal distribution. Specify the sample sizes, means, and variances for each group that would be reasonable if your hypothesis were true. You may need to consult some previous literature and/or an expert in the field to come up with these numbers.</h3>
+<p>Control: n = 12; mean = ~1.2; variance = ~0.05</p>
+<p>Fe: n = 12; mean = ~1.3; variance = ~0.05</p>
+<p>Fe, P, N: n = 12; mean = ~5.7; variance = ~0.75</p>
+<p>P, N: n = 12; mean = ~3.0; variance = ~0.3</p>
+</div>
+<div id="using-the-methods-we-have-covered-in-class-write-code-to-create-a-random-data-set-that-has-these-attributes.-organize-these-data-into-a-data-frame-with-the-appropriate-structure." class="section level3">
+<h3>3. Using the methods we have covered in class, write code to create a random data set that has these attributes. Organize these data into a data frame with the appropriate structure.</h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>n_group <span class="ot">=</span> <span class="dv">4</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>n_name <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;Control&quot;</span>,<span class="st">&quot;Fe&quot;</span>,<span class="st">&quot;Fe, P, N&quot;</span>, <span class="st">&quot;P, N&quot;</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>n_size <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">12</span>,<span class="dv">12</span>,<span class="dv">12</span>,<span class="dv">12</span>)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>n_mean <span class="ot">=</span> <span class="fu">c</span>(<span class="fl">1.2</span>,<span class="fl">1.3</span>,<span class="fl">5.7</span>,<span class="fl">3.0</span>)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>n_sd <span class="ot">=</span> <span class="fu">c</span>(<span class="fl">0.05</span>,<span class="fl">0.05</span>,<span class="fl">0.75</span>,<span class="fl">0.3</span>)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>ID <span class="ot">=</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">sum</span>(n_size)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>res_var <span class="ot">=</span> <span class="fu">c</span>(<span class="fu">rnorm</span>(<span class="at">n=</span>n_size[<span class="dv">1</span>],<span class="at">mean=</span>n_mean[<span class="dv">1</span>],<span class="at">sd=</span>n_sd[<span class="dv">1</span>]),</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>            <span class="fu">rnorm</span>(<span class="at">n=</span>n_size[<span class="dv">2</span>],<span class="at">mean=</span>n_mean[<span class="dv">2</span>],<span class="at">sd=</span>n_sd[<span class="dv">2</span>]),</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>            <span class="fu">rnorm</span>(<span class="at">n=</span>n_size[<span class="dv">3</span>],<span class="at">mean=</span>n_mean[<span class="dv">3</span>],<span class="at">sd=</span>n_sd[<span class="dv">3</span>]),</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>            <span class="fu">rnorm</span>(<span class="at">n=</span>n_size[<span class="dv">4</span>],<span class="at">mean=</span>n_mean[<span class="dv">4</span>],<span class="at">sd=</span>n_sd[<span class="dv">4</span>]))</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>trt_group <span class="ot">=</span> <span class="fu">rep</span>(n_name,n_size)</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>anova_data <span class="ot">=</span> <span class="fu">data.frame</span>(ID,trt_group,res_var)</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(anova_data)</span></code></pre></div>
+<pre><code>##   ID trt_group  res_var
+## 1  1   Control 1.103597
+## 2  2   Control 1.196972
+## 3  3   Control 1.239624
+## 4  4   Control 1.169237
+## 5  5   Control 1.199440
+## 6  6   Control 1.178811</code></pre>
+</div>
+<div id="now-write-code-to-analyze-the-data-probably-as-an-anova-or-regression-analysis-but-possibly-as-a-logistic-regression-or-contingency-table-analysis.-write-code-to-generate-a-useful-graph-of-the-data." class="section level3">
+<h3>4. Now write code to analyze the data (probably as an ANOVA or regression analysis, but possibly as a logistic regression or contingency table analysis. Write code to generate a useful graph of the data.</h3>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>anova_model <span class="ot">=</span> <span class="fu">aov</span>(res_var<span class="sc">~</span>trt_group,<span class="at">data=</span>anova_data)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(anova_model)</span></code></pre></div>
+<pre><code>## Call:
+##    aov(formula = res_var ~ trt_group, data = anova_data)
+## 
+## Terms:
+##                 trt_group Residuals
+## Sum of Squares  164.26628   7.16618
+## Deg. of Freedom         3        44
+## 
+## Residual standard error: 0.4035688
+## Estimated effects may be unbalanced</code></pre>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>z <span class="ot">=</span> <span class="fu">summary</span>(anova_model)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(z)</span></code></pre></div>
+<pre><code>##             Df Sum Sq Mean Sq F value Pr(&gt;F)    
+## trt_group    3 164.27   54.76   336.2 &lt;2e-16 ***
+## Residuals   44   7.17    0.16                   
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>flat_out <span class="ot">=</span> <span class="fu">unlist</span>(z)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>anova_stats <span class="ot">=</span> <span class="fu">list</span>(<span class="at">f_ratio=</span><span class="fu">unlist</span>(z)[<span class="dv">7</span>],</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>                   <span class="at">f_pval=</span><span class="fu">unlist</span>(z)[<span class="dv">9</span>])</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(anova_stats)  </span></code></pre></div>
+<pre><code>## $f_ratio
+## F value1 
+## 336.1956 
+## 
+## $f_pval
+##      Pr(&gt;F)1 
+## 2.445589e-30</code></pre>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
+<pre><code>## Warning: package &#39;tidyverse&#39; was built under R version 4.1.2</code></pre>
+<pre><code>## -- Attaching packages --------------------------------------- tidyverse 1.3.1 --</code></pre>
+<pre><code>## v ggplot2 3.3.5     v purrr   0.3.4
+## v tibble  3.1.4     v dplyr   1.0.7
+## v tidyr   1.1.3     v stringr 1.4.0
+## v readr   2.0.1     v forcats 0.5.1</code></pre>
+<pre><code>## -- Conflicts ------------------------------------------ tidyverse_conflicts() --
+## x dplyr::filter() masks stats::filter()
+## x dplyr::lag()    masks stats::lag()</code></pre>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>anova_plot <span class="ot">=</span> <span class="fu">ggplot</span>(anova_data) <span class="sc">+</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x=</span>trt_group,<span class="at">y=</span>res_var) <span class="sc">+</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>anova_plot</span></code></pre></div>
+<p><img src="data:image/png;base64,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" /><!-- --></p>
+</div>
+<div id="try-running-your-analysis-multiple-times-to-get-a-feeling-for-how-variable-the-results-are-with-the-same-parameters-but-different-sets-of-random-numbers." class="section level3">
+<h3>5. Try running your analysis multiple times to get a feeling for how variable the results are with the same parameters, but different sets of random numbers.</h3>
+<div id="nd-analysis-and-plot" class="section level5">
+<h5>2nd analysis and plot:</h5>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>n_group <span class="ot">=</span> <span class="dv">4</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>n_name <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;Control&quot;</span>,<span class="st">&quot;Fe&quot;</span>,<span class="st">&quot;Fe, P, N&quot;</span>, <span class="st">&quot;P, N&quot;</span>)</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>n_size <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">12</span>,<span class="dv">12</span>,<span class="dv">12</span>,<span class="dv">12</span>)</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>n_mean <span class="ot">=</span> <span class="fu">c</span>(<span class="fl">1.2</span>,<span class="fl">1.3</span>,<span class="fl">5.7</span>,<span class="fl">3.0</span>)</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>n_sd <span class="ot">=</span> <span class="fu">c</span>(<span class="fl">0.05</span>,<span class="fl">0.05</span>,<span class="fl">0.75</span>,<span class="fl">0.3</span>)</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>ID <span class="ot">=</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">sum</span>(n_size)</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>res_var <span class="ot">=</span> <span class="fu">c</span>(<span class="fu">rnorm</span>(<span class="at">n=</span>n_size[<span class="dv">1</span>],<span class="at">mean=</span>n_mean[<span class="dv">1</span>],<span class="at">sd=</span>n_sd[<span class="dv">1</span>]),</span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>            <span class="fu">rnorm</span>(<span class="at">n=</span>n_size[<span class="dv">2</span>],<span class="at">mean=</span>n_mean[<span class="dv">2</span>],<span class="at">sd=</span>n_sd[<span class="dv">2</span>]),</span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>            <span class="fu">rnorm</span>(<span class="at">n=</span>n_size[<span class="dv">3</span>],<span class="at">mean=</span>n_mean[<span class="dv">3</span>],<span class="at">sd=</span>n_sd[<span class="dv">3</span>]),</span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>            <span class="fu">rnorm</span>(<span class="at">n=</span>n_size[<span class="dv">4</span>],<span class="at">mean=</span>n_mean[<span class="dv">4</span>],<span class="at">sd=</span>n_sd[<span class="dv">4</span>]))</span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a>trt_group <span class="ot">=</span> <span class="fu">rep</span>(n_name,n_size)</span>
+<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a>anova_data <span class="ot">=</span> <span class="fu">data.frame</span>(ID,trt_group,res_var)</span>
+<span id="cb15-17"><a href="#cb15-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-18"><a href="#cb15-18" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(anova_data)</span></code></pre></div>
+<pre><code>##   ID trt_group  res_var
+## 1  1   Control 1.238174
+## 2  2   Control 1.219169
+## 3  3   Control 1.147382
+## 4  4   Control 1.093499
+## 5  5   Control 1.262232
+## 6  6   Control 1.184556</code></pre>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>anova_model <span class="ot">=</span> <span class="fu">aov</span>(res_var<span class="sc">~</span>trt_group,<span class="at">data=</span>anova_data)</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(anova_model)</span></code></pre></div>
+<pre><code>## Call:
+##    aov(formula = res_var ~ trt_group, data = anova_data)
+## 
+## Terms:
+##                 trt_group Residuals
+## Sum of Squares  166.53545   2.30185
+## Deg. of Freedom         3        44
+## 
+## Residual standard error: 0.2287242
+## Estimated effects may be unbalanced</code></pre>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>z <span class="ot">=</span> <span class="fu">summary</span>(anova_model)</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(z)</span></code></pre></div>
+<pre><code>##             Df Sum Sq Mean Sq F value Pr(&gt;F)    
+## trt_group    3  166.5   55.51    1061 &lt;2e-16 ***
+## Residuals   44    2.3    0.05                   
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>flat_out <span class="ot">=</span> <span class="fu">unlist</span>(z)</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>anova_stats <span class="ot">=</span> <span class="fu">list</span>(<span class="at">f_ratio=</span><span class="fu">unlist</span>(z)[<span class="dv">7</span>],</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>                   <span class="at">f_pval=</span><span class="fu">unlist</span>(z)[<span class="dv">9</span>])</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(anova_stats)</span></code></pre></div>
+<pre><code>## $f_ratio
+## F value1 
+## 1061.112 
+## 
+## $f_pval
+##      Pr(&gt;F)1 
+## 4.892128e-41</code></pre>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>anova_plot <span class="ot">=</span> <span class="fu">ggplot</span>(anova_data) <span class="sc">+</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x=</span>trt_group,<span class="at">y=</span>res_var) <span class="sc">+</span></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>anova_plot</span></code></pre></div>
+<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAqAAAAHgCAMAAABNUi8GAAAAz1BMVEUAAAAAADoAAGYAOpAAZrYzMzM6AAA6ADo6AGY6kNtNTU1NTW5NTY5NbqtNjshmAABmADpmAGZmtrZmtv9uTU1uTW5uTY5ubo5ubqtuq+SOTU2OTW6OTY6Obk2ObquOyP+QOgCQkDqQkGaQtpCQ2/+rbk2rbm6rbo6rjk2rq8iryKur5OSr5P+2ZgC22/+2///Ijk3Ijo7IyI7I5KvI///bkDrb/7bb///kq27k///r6+v/tmb/yI7/25D/27b/5Kv//7b//8j//9v//+T///9Fw+EfAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAO/ElEQVR4nO3dC1cb1xmFYdkGx8gX2oIdX5JAU9tNUyi0gQYXqLjo//+maiQdgWA07DKc2R8677NqB2EW3kxfz0iygd4QCKznHgA0IVCERqAIjUARGoEiNAJFaGqg/8kl33tugVGqbKMItAmjVARqwSgVgVowSkWgFoxSEagFo1QEasEoFYFaMEpFoBaMUhGoBaNUBGrBKBWBWjBKRaAWjFIRqAWjVARqwSgVgVowSkWgFoxSEagFo1QEasEoFYFahBy16h5Qh0AtQo4iUAJNQo4iUIS26h5gwRm0TshRnEEJNAk5ikAJNAk5ikAJNAk5ikAJNAk5ikAJNAk5ikAJNAk5ikAJNAk5ikAJNAk5ikAJNAk5ikAJNAk5ikAJNAk5ikAJNAk5ikAJNAk5ikAJNAk5ikAJNAk5ikAJNAk5ikAJNAk5ikAJNAk5ikAJNAk5ikAJNAk5ikAJNAk5ikAJNAk5ikAJNAk5ikAJNAk5ikAJNAk5ikAJNAk5ikAJNAk5ikAJNAk5ikAJNAk5ikAJNMk6arVrOT8YArXIG6h4yB/K0gZ6+aX/cifdyLWDQLNb2kD3t4Ynr79Nb+TaQaDZLWug5z8cXLuVaweBZresgQ7e/zK9xFd3tDs4kKXoPNCOf7+H1RDo5tYoUi7xD44zqPSOp5rOoN+G55/So6RcOwg0u2UN9PwnAs2CQKV3PNX8KJ5LfAYEKr3jqYZAzz/2X80eyOfaQaDZLW2gc3LtINDsCLTdkGzvuQUCVRGoBYGqCNSCQFUEakGgKgK14N+DqgjUgkBVBGrBJV5FoBYEqiJQCwJVEagFgaoI1IJAVQRqQaAqArUgUBWBWhCoikAtCFRFoBYEqiJQCwJVEagFgaoI1IJAVQRqQaAqArUgUBWBWhCoikAtCFRFoBb8i3oVgVqEHMU3USDQJOQoAiXQJOQoAiXQJOQoAkVoj/tLed8XZ9A6IUdxBiXQJOQoAiXQJOQoAiXQJOQoAiXQJOQoAiXQJOQoAiXQJOQoAiXQJOQoAiXQJOQoAiXQJOQoAiXQJOQoAiXQJOQoAiXQJOQoAiXQJOQoAiXQJOQoAiXQJOQoAiXQJOQoAiXQJOQoAiXQJOQoAiXQJOQoAiXQJOQoAiXQJOQoAiXQJOQoAiXQJOQoAiXQJOQoAiXQJOQoAiXQJOQoAiXQJOQoAiXQJOQoAiXQhFEqArVglIpALRilcgZ61O/3Xx0QaBRljRIC3d/iDBpJWaPuDvTy6w6BRlLWqLsDPf84usSPT6LVN4NafKIFMloc6ODtzrWzaK4/KIWdF9ooa9TdgY7N7ofm2lHYYW+jrFEE2oRRKmOgJ6+/DS//ytNMYZQ1SjiDHvX7L2cP5HPtKOywt1HWKPESP5NrR2GHvY2yRhFoE0apCNSCUSoCtWCUikAtGKUiUAtGqQjUglEqArVglIpALRilIlALRqkI1IJRKgK1YJSKQC0YpSJQC0apCNSCUSoCtWCUikAtGKUiUAtGqQjUglEqArVglIpALRilIlALRqkI1IJRKgK1YJSKQC0YpSJQC0apCNSCUSoCtWCUikAtGKUiUAtGqcIEClhwBq3DKFWYM2iuHYUd9jbKGkWgTRilIlALRqkI1IJRKgK1YJSKQC0YpSJQC0apCNSCUSoCtWCUikAtGKUiUAtGqQjUglEqArVglIpALRilIlALRqkI1IJRKgK1YJSKQC0YpSJQC0apCNSCUSoCtWCUikAtGKXqNNCL7Q0CHWOUqtNAz9YJdIJRqm4v8YfPfifQCqNUHZ9Be2NP9wg0oLJG1Z5BG+TaUdhhb6OsUQTahFGqbgM9fc4lfoxRqo6fZlq72N6ofyyfa0dhh72NskbVBVqlubs2PK57LJ9rR2GHvY2yRi0K9HBleDy7xF9+2SLQMMoaVXsfdHdc59WzoUd9Ao2jrFG1gY7uhA53e08+T28Ovv+RQOMoa1RtoPMuv/59colfHVn8ZkBGDYEefeA+aCRljaoL9Gx97dqtwftvBBpJWaNqz6CHvV5v9iToUb/ygUCjKGvUokv8bu/qQRJPM4VS1qiG+6C7PA/KKJXjDFr3V/EE6lfWqNpA567vBBpMWaPqAuVTPhJGqUxP1J/98eZlPteOwg57G2WNItAmjFIRqAWjVARqwSgVgVowSkWgFoxSEagFo1QEasEoFZ8Xb8EoVbeBnq1vnK3zd/GM0nX+SXOHT/cOVwjUPaBOWaPqAh2dQC+2r3/aMYFGUtaoBYFWn/VBoIySdRroxfba8ZPP1YWeQAMqa1RdoNUXD1sZ7tZ+FdtcOwo77G2UNao20Aa5dhR22NsoaxSBNmGUquNAD3u9jfovVJ9rR2GHvY2yRtUGuvvs35Nnmgg0oLJG1QU6fpppg6eZGKUjUAtGqbq9xB9Wl/j5r9BEoGGUNao20OFx9T0U6vokUL+yRtUHuliuHYUd9jbKGlUXKN9MNmGUqusHSQQ6xihV1w+SFn4zWcCCbyZbh1EqHiRZMEpFoBaMUhGoBaNUBGrBKBWBWjBKRaAWjFIRqAWjVARqwSgVgVowSkWgFoxSEagFo1QEasEoFYFaMEpFoBaMUhGoBaNUBGrBKBWBWjBKRaAWjFIRqAWjVARqwSjVaq53TKBNGKUiUAtGqQjUglEqArVglIpALRilIlALRqkI1IJRKgK1YJSKQC3KG7XatTs/WgJtUN6oVbGDh0KgrZQ36jEGetLvvzpIN7IdmfJauC8CnTd4dzA8epNuZTsy5bVwX9wHrY+UQIMg0NsmZ9Dq/TW+GR69zi/x6hs2BTrYfLmTXs72R7e8k9V9cR/0tvNPqdBsR6a8Fu6LQGvsb01fyHZkymvhvgh03snrb5xBIyHQG476fe6DBkKgTbIdmfJauC8CbZLtyJTXwn0RaJNsR6a8Fu6LJ+oJNGGUin8PasEoFYFaMEpFoBaMUhGoBaNUBGrBKBWBWjBKRaAWjFIRqAWjVARqwShVtlEE2oRRKgK1YJSKQC0YpSJQC0apCNSCUSoCtWCUikAtGKUiUAtGqQjUglEqArVglIpALRilIlALRqkI1IJRKgK1YJRI+AT3eyLQJozSSF+C4X4ItAmjNARqwihNoECBGvm/ewFn0DqMUvEo3oJRKgK1YJSKQC0YpSJQC0apCNSCUSoCtWCUikAtGKUiUAtGqQjUglEqArVglIpALRilIlALRqkI1IJRKgK1YJSKQC0YpSJQC0apCNSCUSoCtWCUikAtGKUiUAtGqQjUglEqArVglIpALRilIlALRqkI1IJRKgK1YJSKQC0YpSJQC0apCNSCUSoCtWCUikAtGKVyBjrY7Pe3CDSMskbdHej5p53h4O0OgUZR1qi7Az15M/ppP51Cc+0o7LC3UdYo4RI/PYuOvxB57q9EDtRrDPTyy4f0Yq4/KIWdF9ooa5QS6PnHWZ8E6lfWKCHQwebW1Y1cOwo77G2UNeruQOf6JFC/skbdHehRv8Kj+DDKGiVc4ufk2lHYYW+jrFEE2oRRKgK1YJSKQC0YpSJQC0apCNSCUSoCtWCUikAtGKUiUAtGqQjUglEqArVglIpALRilIlALRqkI1IJRKgK1YJSKQC0YpSJQC0apCNSCUSoCtWCUikAtGKUiUAtGqQjUglEqArVglIpALRilIlALRqkI1IJRKgK1YJSKQC0YpSJQC0apwgQKWHAGrcMoVZgzaK4dhR32NsoaRaBNGKUiUAtGqQjUglEqArVglIpALRilIlALRqkI1GLVPaBOyCNFoBYEqiJQCwJVEWgrq13L+cEQ6BIGKn50D4VAH+4dTy15oJxBMyPQVgg0NwJthUt8bssfaNb/TzmD5kagFiFHESiBJiFHEWi7QJfpakqgKgIl0IRACXT2seR85/dFoC0DFd/TA+EBcwgEugiBhvCYAl2iS3xZLbTxiAK9J+7uqcoaRaBNymqhDQK1KKuFNgjUoqwW2lj+QMs67G2UNYpAmzBKRaAWjFJ5Ax28OyDQMMoapQR60n9FoHGUNUoIdP/lr5xBAylr1P9zia/+YrHpzYBsuA9ah1GqEGdQAg2hrFEE2oRRKgK1YJSKQC0YpeJvkiwYpSJQC0apCNSCUSoCtWCUikAtGKUiUAtGqQjUglGqMIFmE/KfoTBKlX0UgdZhlIpALRilIlALRqmWP1CgCYEiNAJFaASK0AgUoXUc6Em/33/97cYrr/276Fu3OjbYHA3sf/ANWLhi/nWDza2h7VB1OqXbQI+qrwSxf7PQSIE6f/OZuhXj151/2pne2qyOpCvQLqd0Gujkg7r8sjU8/1h91ZLB+1/6/a3q5d++//HVwfSVEQKdTIm0Yvy66tBNb/3rjTfQrqZ0GujJ7Ny5/6G6Mdic/Ofdwfg6sZ9udblpXvrNR1OO3oRaMX7d4O3O7Nb+ljXQrqZ0G2g62uc/HFSn0+qjquoc/+/6K23Gd6/ejE/11ZxAKyZ3/LbSW7w7OP/J9We50ymdBjp4Pz2DVh/O5dcbgV57pc30Nx9dW/v9lzuRVty+o370wXkG7WqK5z5o3DPoNA3f2XPRittVXH79NUqgGaeYHsVf3d28CjTYfdCTW0+HWVfUPNUxefzcvU6nmJ4HvXrAPvpx+eXVb+NnLkI9ivdd4W+smNxKr7t+68gbaCdT+Juk+P55sPiWVRdTCDS8y78tvmXVyRQCRWgEitAIFKERKEIj0Afw33/cfAEPhUDbO/3u840X8GAItD0CzYhAWzt93uutnb74c6+yNnv12XrvyV9e7FW/8HTvYrvXW5kWPPrp9Lufe71nv7sWPyYE2l6V3enzlfkz6Nn62ujH073xL1xsr4x/zAJ9XjW70vnSR4hA25sEujEf6PHTveHwsAp0Y3pj9NNVoBvcIdAQaHvjQEc/5pI7rK7gpy8mTR6Pb1SX9s9X/z1b3+h66SNEoO0RaEYE2l5toHNX9eMnn2su8S/2Op/6+BBoe9Wp8NY5cfYgqfqF9CCpeuXF9hMeJOkI9AHs9lYmJ8/d6rmkqepppp+ngQ6nTzONn5L60x8mTzOt3Ho/uI1Aczpe8FwnD+BlBJpJdbdz4VWcQGUE+rCqa3jlyefD3uKrOIHKCBShEShCI1CERqAIjUARGoEiNAJFaP8DklCxwkZ0LggAAAAASUVORK5CYII=" /><!-- --></p>
+</div>
+<div id="rd-analysis-and-plot" class="section level5">
+<h5>3rd analysis and plot:</h5>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>n_group <span class="ot">=</span> <span class="dv">4</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>n_name <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;Control&quot;</span>,<span class="st">&quot;Fe&quot;</span>,<span class="st">&quot;Fe, P, N&quot;</span>, <span class="st">&quot;P, N&quot;</span>)</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>n_size <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">12</span>,<span class="dv">12</span>,<span class="dv">12</span>,<span class="dv">12</span>)</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>n_mean <span class="ot">=</span> <span class="fu">c</span>(<span class="fl">1.2</span>,<span class="fl">1.3</span>,<span class="fl">5.7</span>,<span class="fl">3.0</span>)</span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>n_sd <span class="ot">=</span> <span class="fu">c</span>(<span class="fl">0.05</span>,<span class="fl">0.05</span>,<span class="fl">0.75</span>,<span class="fl">0.3</span>)</span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>ID <span class="ot">=</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">sum</span>(n_size)</span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a>res_var <span class="ot">=</span> <span class="fu">c</span>(<span class="fu">rnorm</span>(<span class="at">n=</span>n_size[<span class="dv">1</span>],<span class="at">mean=</span>n_mean[<span class="dv">1</span>],<span class="at">sd=</span>n_sd[<span class="dv">1</span>]),</span>
+<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a>            <span class="fu">rnorm</span>(<span class="at">n=</span>n_size[<span class="dv">2</span>],<span class="at">mean=</span>n_mean[<span class="dv">2</span>],<span class="at">sd=</span>n_sd[<span class="dv">2</span>]),</span>
+<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a>            <span class="fu">rnorm</span>(<span class="at">n=</span>n_size[<span class="dv">3</span>],<span class="at">mean=</span>n_mean[<span class="dv">3</span>],<span class="at">sd=</span>n_sd[<span class="dv">3</span>]),</span>
+<span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a>            <span class="fu">rnorm</span>(<span class="at">n=</span>n_size[<span class="dv">4</span>],<span class="at">mean=</span>n_mean[<span class="dv">4</span>],<span class="at">sd=</span>n_sd[<span class="dv">4</span>]))</span>
+<span id="cb24-13"><a href="#cb24-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-14"><a href="#cb24-14" aria-hidden="true" tabindex="-1"></a>trt_group <span class="ot">=</span> <span class="fu">rep</span>(n_name,n_size)</span>
+<span id="cb24-15"><a href="#cb24-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-16"><a href="#cb24-16" aria-hidden="true" tabindex="-1"></a>anova_data <span class="ot">=</span> <span class="fu">data.frame</span>(ID,trt_group,res_var)</span>
+<span id="cb24-17"><a href="#cb24-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-18"><a href="#cb24-18" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(anova_data)</span></code></pre></div>
+<pre><code>##   ID trt_group  res_var
+## 1  1   Control 1.201413
+## 2  2   Control 1.053553
+## 3  3   Control 1.122351
+## 4  4   Control 1.170083
+## 5  5   Control 1.128019
+## 6  6   Control 1.257643</code></pre>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>anova_model <span class="ot">=</span> <span class="fu">aov</span>(res_var<span class="sc">~</span>trt_group,<span class="at">data=</span>anova_data)</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(anova_model)</span></code></pre></div>
+<pre><code>## Call:
+##    aov(formula = res_var ~ trt_group, data = anova_data)
+## 
+## Terms:
+##                 trt_group Residuals
+## Sum of Squares  174.72514   7.45883
+## Deg. of Freedom         3        44
+## 
+## Residual standard error: 0.4117267
+## Estimated effects may be unbalanced</code></pre>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>z <span class="ot">=</span> <span class="fu">summary</span>(anova_model)</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(z)</span></code></pre></div>
+<pre><code>##             Df Sum Sq Mean Sq F value Pr(&gt;F)    
+## trt_group    3 174.73   58.24   343.6 &lt;2e-16 ***
+## Residuals   44   7.46    0.17                   
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>flat_out <span class="ot">=</span> <span class="fu">unlist</span>(z)</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>anova_stats <span class="ot">=</span> <span class="fu">list</span>(<span class="at">f_ratio=</span><span class="fu">unlist</span>(z)[<span class="dv">7</span>],</span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>                   <span class="at">f_pval=</span><span class="fu">unlist</span>(z)[<span class="dv">9</span>])</span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(anova_stats)  </span></code></pre></div>
+<pre><code>## $f_ratio
+## F value1 
+## 343.5706 
+## 
+## $f_pval
+##      Pr(&gt;F)1 
+## 1.548166e-30</code></pre>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>anova_plot <span class="ot">=</span> <span class="fu">ggplot</span>(anova_data) <span class="sc">+</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x=</span>trt_group,<span class="at">y=</span>res_var) <span class="sc">+</span></span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()</span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>anova_plot</span></code></pre></div>
+<p><img src="data:image/png;base64,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" /><!-- --></p>
+</div>
+</div>
+<div id="now-begin-adjusting-the-means-of-the-different-groups.-given-the-sample-sizes-you-have-chosen-how-small-can-the-differences-between-the-groups-be-the-effect-size-for-you-to-still-detect-a-significant-pattern-p-0.05" class="section level3">
+<h3>6. Now begin adjusting the means of the different groups. Given the sample sizes you have chosen, how small can the differences between the groups be (the “effect size”) for you to still detect a significant pattern (p &lt; 0.05)?</h3>
+<p>I ran it a couple of times, and I eventually found mean values which barely was not significant.</p>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>n_group <span class="ot">=</span> <span class="dv">4</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>n_name <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;Control&quot;</span>,<span class="st">&quot;Fe&quot;</span>,<span class="st">&quot;Fe, P, N&quot;</span>, <span class="st">&quot;P, N&quot;</span>)</span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>n_size <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">12</span>,<span class="dv">12</span>,<span class="dv">12</span>,<span class="dv">12</span>)</span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>n_mean <span class="ot">=</span> <span class="fu">c</span>(<span class="fl">3.1</span>,<span class="fl">3.2</span>,<span class="fl">3.3</span>,<span class="fl">3.6</span>)</span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>n_sd <span class="ot">=</span> <span class="fu">c</span>(<span class="fl">0.05</span>,<span class="fl">0.05</span>,<span class="fl">0.75</span>,<span class="fl">0.3</span>)</span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a>ID <span class="ot">=</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">sum</span>(n_size)</span>
+<span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-9"><a href="#cb33-9" aria-hidden="true" tabindex="-1"></a>res_var <span class="ot">=</span> <span class="fu">c</span>(<span class="fu">rnorm</span>(<span class="at">n=</span>n_size[<span class="dv">1</span>],<span class="at">mean=</span>n_mean[<span class="dv">1</span>],<span class="at">sd=</span>n_sd[<span class="dv">1</span>]),</span>
+<span id="cb33-10"><a href="#cb33-10" aria-hidden="true" tabindex="-1"></a>            <span class="fu">rnorm</span>(<span class="at">n=</span>n_size[<span class="dv">2</span>],<span class="at">mean=</span>n_mean[<span class="dv">2</span>],<span class="at">sd=</span>n_sd[<span class="dv">2</span>]),</span>
+<span id="cb33-11"><a href="#cb33-11" aria-hidden="true" tabindex="-1"></a>            <span class="fu">rnorm</span>(<span class="at">n=</span>n_size[<span class="dv">3</span>],<span class="at">mean=</span>n_mean[<span class="dv">3</span>],<span class="at">sd=</span>n_sd[<span class="dv">3</span>]),</span>
+<span id="cb33-12"><a href="#cb33-12" aria-hidden="true" tabindex="-1"></a>            <span class="fu">rnorm</span>(<span class="at">n=</span>n_size[<span class="dv">4</span>],<span class="at">mean=</span>n_mean[<span class="dv">4</span>],<span class="at">sd=</span>n_sd[<span class="dv">4</span>]))</span>
+<span id="cb33-13"><a href="#cb33-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-14"><a href="#cb33-14" aria-hidden="true" tabindex="-1"></a>trt_group <span class="ot">=</span> <span class="fu">rep</span>(n_name,n_size)</span>
+<span id="cb33-15"><a href="#cb33-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-16"><a href="#cb33-16" aria-hidden="true" tabindex="-1"></a>anova_data <span class="ot">=</span> <span class="fu">data.frame</span>(ID,trt_group,res_var)</span>
+<span id="cb33-17"><a href="#cb33-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-18"><a href="#cb33-18" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(anova_data)</span></code></pre></div>
+<pre><code>##   ID trt_group  res_var
+## 1  1   Control 3.169954
+## 2  2   Control 3.106953
+## 3  3   Control 3.040261
+## 4  4   Control 3.025672
+## 5  5   Control 3.038975
+## 6  6   Control 3.132346</code></pre>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>anova_model <span class="ot">=</span> <span class="fu">aov</span>(res_var<span class="sc">~</span>trt_group,<span class="at">data=</span>anova_data)</span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(anova_model)</span></code></pre></div>
+<pre><code>## Call:
+##    aov(formula = res_var ~ trt_group, data = anova_data)
+## 
+## Terms:
+##                 trt_group Residuals
+## Sum of Squares   2.120061  3.435392
+## Deg. of Freedom         3        44
+## 
+## Residual standard error: 0.2794228
+## Estimated effects may be unbalanced</code></pre>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>z <span class="ot">=</span> <span class="fu">summary</span>(anova_model)</span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(z)</span></code></pre></div>
+<pre><code>##             Df Sum Sq Mean Sq F value   Pr(&gt;F)    
+## trt_group    3  2.120  0.7067   9.051 8.79e-05 ***
+## Residuals   44  3.435  0.0781                     
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>flat_out <span class="ot">=</span> <span class="fu">unlist</span>(z)</span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>anova_stats <span class="ot">=</span> <span class="fu">list</span>(<span class="at">f_ratio=</span><span class="fu">unlist</span>(z)[<span class="dv">7</span>],</span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>                   <span class="at">f_pval=</span><span class="fu">unlist</span>(z)[<span class="dv">9</span>])</span>
+<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(anova_stats)  </span></code></pre></div>
+<pre><code>## $f_ratio
+## F value1 
+## 9.051145 
+## 
+## $f_pval
+##      Pr(&gt;F)1 
+## 8.790254e-05</code></pre>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>anova_plot <span class="ot">=</span> <span class="fu">ggplot</span>(anova_data) <span class="sc">+</span></span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x=</span>trt_group,<span class="at">y=</span>res_var) <span class="sc">+</span></span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()</span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a>anova_plot</span></code></pre></div>
+<p><img src="data:image/png;base64,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" /><!-- --></p>
+</div>
+<div id="alternatively-for-the-effect-sizes-you-originally-hypothesized-what-is-the-minimum-sample-size-you-would-need-in-order-to-detect-a-statistically-significant-effect-again-run-the-model-a-few-times-with-the-same-parameter-set-to-get-a-feeling-for-the-effect-of-random-variation-in-the-data." class="section level3">
+<h3>7. Alternatively, for the effect sizes you originally hypothesized, what is the minimum sample size you would need in order to detect a statistically significant effect? Again, run the model a few times with the same parameter set to get a feeling for the effect of random variation in the data.</h3>
+<p>For some reason, it was statistically significant for a sample size of 2 and then obviously with a sample size of 1 it was N/A.</p>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>n_group <span class="ot">=</span> <span class="dv">4</span></span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>n_name <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;Control&quot;</span>,<span class="st">&quot;Fe&quot;</span>,<span class="st">&quot;Fe, P, N&quot;</span>, <span class="st">&quot;P, N&quot;</span>)</span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>n_size <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>)</span>
+<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a>n_mean <span class="ot">=</span> <span class="fu">c</span>(<span class="fl">1.2</span>,<span class="fl">1.3</span>,<span class="fl">5.7</span>,<span class="fl">3.0</span>)</span>
+<span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a>n_sd <span class="ot">=</span> <span class="fu">c</span>(<span class="fl">0.05</span>,<span class="fl">0.05</span>,<span class="fl">0.75</span>,<span class="fl">0.3</span>)</span>
+<span id="cb42-6"><a href="#cb42-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-7"><a href="#cb42-7" aria-hidden="true" tabindex="-1"></a>ID <span class="ot">=</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">sum</span>(n_size)</span>
+<span id="cb42-8"><a href="#cb42-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-9"><a href="#cb42-9" aria-hidden="true" tabindex="-1"></a>res_var <span class="ot">=</span> <span class="fu">c</span>(<span class="fu">rnorm</span>(<span class="at">n=</span>n_size[<span class="dv">1</span>],<span class="at">mean=</span>n_mean[<span class="dv">1</span>],<span class="at">sd=</span>n_sd[<span class="dv">1</span>]),</span>
+<span id="cb42-10"><a href="#cb42-10" aria-hidden="true" tabindex="-1"></a>            <span class="fu">rnorm</span>(<span class="at">n=</span>n_size[<span class="dv">2</span>],<span class="at">mean=</span>n_mean[<span class="dv">2</span>],<span class="at">sd=</span>n_sd[<span class="dv">2</span>]),</span>
+<span id="cb42-11"><a href="#cb42-11" aria-hidden="true" tabindex="-1"></a>            <span class="fu">rnorm</span>(<span class="at">n=</span>n_size[<span class="dv">3</span>],<span class="at">mean=</span>n_mean[<span class="dv">3</span>],<span class="at">sd=</span>n_sd[<span class="dv">3</span>]),</span>
+<span id="cb42-12"><a href="#cb42-12" aria-hidden="true" tabindex="-1"></a>            <span class="fu">rnorm</span>(<span class="at">n=</span>n_size[<span class="dv">4</span>],<span class="at">mean=</span>n_mean[<span class="dv">4</span>],<span class="at">sd=</span>n_sd[<span class="dv">4</span>]))</span>
+<span id="cb42-13"><a href="#cb42-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-14"><a href="#cb42-14" aria-hidden="true" tabindex="-1"></a>trt_group <span class="ot">=</span> <span class="fu">rep</span>(n_name,n_size)</span>
+<span id="cb42-15"><a href="#cb42-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-16"><a href="#cb42-16" aria-hidden="true" tabindex="-1"></a>anova_data <span class="ot">=</span> <span class="fu">data.frame</span>(ID,trt_group,res_var)</span>
+<span id="cb42-17"><a href="#cb42-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-18"><a href="#cb42-18" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(anova_data)</span></code></pre></div>
+<pre><code>##   ID trt_group  res_var
+## 1  1   Control 1.279825
+## 2  2        Fe 1.307285
+## 3  3  Fe, P, N 6.224698
+## 4  4      P, N 3.547986</code></pre>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>anova_model <span class="ot">=</span> <span class="fu">aov</span>(res_var<span class="sc">~</span>trt_group,<span class="at">data=</span>anova_data)</span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(anova_model)</span></code></pre></div>
+<pre><code>## Call:
+##    aov(formula = res_var ~ trt_group, data = anova_data)
+## 
+## Terms:
+##                 trt_group
+## Sum of Squares   16.49089
+## Deg. of Freedom         3
+## 
+## Estimated effects may be unbalanced</code></pre>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>z <span class="ot">=</span> <span class="fu">summary</span>(anova_model)</span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(z)</span></code></pre></div>
+<pre><code>##             Df Sum Sq Mean Sq
+## trt_group    3  16.49   5.497</code></pre>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>flat_out <span class="ot">=</span> <span class="fu">unlist</span>(z)</span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>anova_stats <span class="ot">=</span> <span class="fu">list</span>(<span class="at">f_ratio=</span><span class="fu">unlist</span>(z)[<span class="dv">7</span>],</span>
+<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a>                   <span class="at">f_pval=</span><span class="fu">unlist</span>(z)[<span class="dv">9</span>])</span>
+<span id="cb48-4"><a href="#cb48-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-5"><a href="#cb48-5" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(anova_stats)  </span></code></pre></div>
+<pre><code>## $f_ratio
+## &lt;NA&gt; 
+##   NA 
+## 
+## $f_pval
+## &lt;NA&gt; 
+##   NA</code></pre>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a>anova_plot <span class="ot">=</span> <span class="fu">ggplot</span>(anova_data) <span class="sc">+</span></span>
+<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x=</span>trt_group,<span class="at">y=</span>res_var) <span class="sc">+</span></span>
+<span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()</span>
+<span id="cb50-4"><a href="#cb50-4" aria-hidden="true" tabindex="-1"></a>anova_plot</span></code></pre></div>
+<p><img src="data:image/png;base64,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" /><!-- --></p>
 </div>
 </article>
 </div>

@@ -22,3 +22,5 @@ output:
 [Homework 6](Homework6.html)
 
 [Homework 7](Homework7.html)
+
+[Homework 8](Homework8.html)

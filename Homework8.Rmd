@@ -1,0 +1,231 @@
+---
+title: "Homework 8"
+author: "Maria Alfaro"
+date: "3/16/2022"
+output:
+  prettydoc::html_pretty:
+    theme: leonids
+    highlight: github
+---
+
+[Home Page](index.html)
+
+### 1. Think about an ongoing study in your lab (or a paper you have read in a different class), and decide on a pattern that you might expect in your experiment if a specific hypothesis were true.
+
+I'm using a paper I read recently related to my research. To narrow the scope for the purpose of this assignment, I'll focus on the effect of iron (Fe), phosphorus (P), and nitrogen (N) enrichment in a lake experiment on chlorophyll-a concentrations. [North et al. 2007](https://aslopubs.onlinelibrary.wiley.com/doi/pdfdirect/10.4319/lo.2007.52.1.0315)
+
+### 2. To start simply, assume that the data in each of your treatment groups follow a normal distribution. Specify the sample sizes, means, and variances for each group that would be reasonable if your hypothesis were true. You may need to consult some previous literature and/or an expert in the field to come up with these numbers.
+
+Control: n = 12; mean = ~1.2; variance = ~0.05
+
+Fe: n = 12; mean = ~1.3; variance = ~0.05
+
+Fe, P, N: n = 12; mean = ~5.7; variance = ~0.75
+
+P, N: n = 12; mean = ~3.0; variance = ~0.3
+
+### 3. Using the methods we have covered in class, write code to create a random data set that has these attributes. Organize these data into a data frame with the appropriate structure.
+
+```{r}
+n_group = 4
+n_name = c("Control","Fe","Fe, P, N", "P, N")
+n_size = c(12,12,12,12)
+n_mean = c(1.2,1.3,5.7,3.0)
+n_sd = c(0.05,0.05,0.75,0.3)
+
+ID = 1:sum(n_size)
+
+res_var = c(rnorm(n=n_size[1],mean=n_mean[1],sd=n_sd[1]),
+            rnorm(n=n_size[2],mean=n_mean[2],sd=n_sd[2]),
+            rnorm(n=n_size[3],mean=n_mean[3],sd=n_sd[3]),
+            rnorm(n=n_size[4],mean=n_mean[4],sd=n_sd[4]))
+
+trt_group = rep(n_name,n_size)
+
+anova_data = data.frame(ID,trt_group,res_var)
+
+head(anova_data)
+
+```
+
+### 4. Now write code to analyze the data (probably as an ANOVA or regression analysis, but possibly as a logistic regression or contingency table analysis. Write code to generate a useful graph of the data.
+
+```{r}
+anova_model = aov(res_var~trt_group,data=anova_data)
+print(anova_model)
+
+z = summary(anova_model)
+print(z)
+flat_out = unlist(z)
+anova_stats = list(f_ratio=unlist(z)[7],
+                   f_pval=unlist(z)[9])
+
+print(anova_stats)  
+
+library(tidyverse)
+
+anova_plot = ggplot(anova_data) +
+  aes(x=trt_group,y=res_var) +
+  geom_boxplot()
+anova_plot
+
+```
+
+### 5. Try running your analysis multiple times to get a feeling for how variable the results are with the same parameters, but different sets of random numbers.
+
+##### 2nd analysis and plot:
+
+```{r}
+n_group = 4
+n_name = c("Control","Fe","Fe, P, N", "P, N")
+n_size = c(12,12,12,12)
+n_mean = c(1.2,1.3,5.7,3.0)
+n_sd = c(0.05,0.05,0.75,0.3)
+
+ID = 1:sum(n_size)
+
+res_var = c(rnorm(n=n_size[1],mean=n_mean[1],sd=n_sd[1]),
+            rnorm(n=n_size[2],mean=n_mean[2],sd=n_sd[2]),
+            rnorm(n=n_size[3],mean=n_mean[3],sd=n_sd[3]),
+            rnorm(n=n_size[4],mean=n_mean[4],sd=n_sd[4]))
+
+trt_group = rep(n_name,n_size)
+
+anova_data = data.frame(ID,trt_group,res_var)
+
+head(anova_data)
+anova_model = aov(res_var~trt_group,data=anova_data)
+print(anova_model)
+
+z = summary(anova_model)
+print(z)
+flat_out = unlist(z)
+anova_stats = list(f_ratio=unlist(z)[7],
+                   f_pval=unlist(z)[9])
+
+print(anova_stats)
+
+anova_plot = ggplot(anova_data) +
+  aes(x=trt_group,y=res_var) +
+  geom_boxplot()
+anova_plot
+```
+
+##### 3rd analysis and plot:
+
+
+```{r}
+n_group = 4
+n_name = c("Control","Fe","Fe, P, N", "P, N")
+n_size = c(12,12,12,12)
+n_mean = c(1.2,1.3,5.7,3.0)
+n_sd = c(0.05,0.05,0.75,0.3)
+
+ID = 1:sum(n_size)
+
+res_var = c(rnorm(n=n_size[1],mean=n_mean[1],sd=n_sd[1]),
+            rnorm(n=n_size[2],mean=n_mean[2],sd=n_sd[2]),
+            rnorm(n=n_size[3],mean=n_mean[3],sd=n_sd[3]),
+            rnorm(n=n_size[4],mean=n_mean[4],sd=n_sd[4]))
+
+trt_group = rep(n_name,n_size)
+
+anova_data = data.frame(ID,trt_group,res_var)
+
+head(anova_data)
+anova_model = aov(res_var~trt_group,data=anova_data)
+print(anova_model)
+
+z = summary(anova_model)
+print(z)
+flat_out = unlist(z)
+anova_stats = list(f_ratio=unlist(z)[7],
+                   f_pval=unlist(z)[9])
+
+print(anova_stats)  
+
+anova_plot = ggplot(anova_data) +
+  aes(x=trt_group,y=res_var) +
+  geom_boxplot()
+anova_plot
+```
+
+### 6. Now begin adjusting the means of the different groups. Given the sample sizes you have chosen, how small can the differences between the groups be (the “effect size”) for you to still detect a significant pattern (p < 0.05)?
+
+I ran it a couple of times, and I eventually found mean values which barely was not significant.
+
+```{r}
+n_group = 4
+n_name = c("Control","Fe","Fe, P, N", "P, N")
+n_size = c(12,12,12,12)
+n_mean = c(3.1,3.2,3.3,3.6)
+n_sd = c(0.05,0.05,0.75,0.3)
+
+ID = 1:sum(n_size)
+
+res_var = c(rnorm(n=n_size[1],mean=n_mean[1],sd=n_sd[1]),
+            rnorm(n=n_size[2],mean=n_mean[2],sd=n_sd[2]),
+            rnorm(n=n_size[3],mean=n_mean[3],sd=n_sd[3]),
+            rnorm(n=n_size[4],mean=n_mean[4],sd=n_sd[4]))
+
+trt_group = rep(n_name,n_size)
+
+anova_data = data.frame(ID,trt_group,res_var)
+
+head(anova_data)
+anova_model = aov(res_var~trt_group,data=anova_data)
+print(anova_model)
+
+z = summary(anova_model)
+print(z)
+flat_out = unlist(z)
+anova_stats = list(f_ratio=unlist(z)[7],
+                   f_pval=unlist(z)[9])
+
+print(anova_stats)  
+
+anova_plot = ggplot(anova_data) +
+  aes(x=trt_group,y=res_var) +
+  geom_boxplot()
+anova_plot
+```
+
+### 7. Alternatively, for the effect sizes you originally hypothesized, what is the minimum sample size you would need in order to detect a statistically significant effect? Again, run the model a few times with the same parameter set to get a feeling for the effect of random variation in the data.
+
+For some reason, it was statistically significant for a sample size of 2 and then obviously with a sample size of 1 it was N/A.
+
+```{r}
+n_group = 4
+n_name = c("Control","Fe","Fe, P, N", "P, N")
+n_size = c(1,1,1,1)
+n_mean = c(1.2,1.3,5.7,3.0)
+n_sd = c(0.05,0.05,0.75,0.3)
+
+ID = 1:sum(n_size)
+
+res_var = c(rnorm(n=n_size[1],mean=n_mean[1],sd=n_sd[1]),
+            rnorm(n=n_size[2],mean=n_mean[2],sd=n_sd[2]),
+            rnorm(n=n_size[3],mean=n_mean[3],sd=n_sd[3]),
+            rnorm(n=n_size[4],mean=n_mean[4],sd=n_sd[4]))
+
+trt_group = rep(n_name,n_size)
+
+anova_data = data.frame(ID,trt_group,res_var)
+
+head(anova_data)
+anova_model = aov(res_var~trt_group,data=anova_data)
+print(anova_model)
+
+z = summary(anova_model)
+print(z)
+flat_out = unlist(z)
+anova_stats = list(f_ratio=unlist(z)[7],
+                   f_pval=unlist(z)[9])
+
+print(anova_stats)  
+
+anova_plot = ggplot(anova_data) +
+  aes(x=trt_group,y=res_var) +
+  geom_boxplot()
+anova_plot
+```

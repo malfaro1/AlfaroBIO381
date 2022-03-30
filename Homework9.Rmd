@@ -14,10 +14,16 @@ output:
 
 ##### Precalculations for shape and scale using mean and variance
 **because:**
-# mean=shape*scale
+$$
+mean=shape*scale
+$$
 **then:**
-# shape = mean/scale
-# scale = mean/shape
+$$
+shape = mean/scale
+$$
+$$
+scale = mean/shape
+$$
 
 **because:**
 $$
@@ -76,16 +82,144 @@ n_scale = c(scale1,scale2,scale3,scale4)
 # outputs: data frame
 ##########################################
 sim_data = function(size=n_size,shape=n_shape,scale=n_scale) {
-  d_frame = data.frame(varA=rgamma(n=size[1],shape=shape[1],scale=scale[1]),
-                       varB=rgamma(n=size[2],shape=shape[2],scale=scale[2]),
-                       varC=rgamma(n=size[3],shape=shape[3],scale=scale[3]),
-                       varD=rgamma(n=size[4],shape=shape[4],scale=scale[4]))
+  ID = 1:sum(n_size)
+  
+  chla_conc = c(rgamma(n=size[1],shape=shape[1],scale=scale[1]),
+                rgamma(n=size[2],shape=shape[2],scale=scale[2]),
+                rgamma(n=size[3],shape=shape[3],scale=scale[3]),
+                rgamma(n=size[4],shape=shape[4],scale=scale[4]))
+  
+  treatment = rep(n_name,n_size)
+  
+  d_frame = data.frame(ID,treatment,chla_conc)
+  
   return(d_frame)
 }
 
 # ----------------------------------------
 
-sim_data()
+my_df = sim_data()
+print(my_df)
+
+# ----------------------------------------
+# FUNCTION anova_calc
+# description: description
+# inputs: input_description
+# outputs: output_description
+##########################################
+anova_calc = function(df=my_df) {
+  
+  anova_model = aov(df$chla_conc~df$treatment,data=df)
+  z = summary(anova_model)
+  flat_out = unlist(z)
+  anova_stats = list(f_ratio = unlist(z)[7],
+                     f_pval = unlist(z)[9])
+  
+  return(anova_stats)
+}
+
+# ----------------------------------------
+
+my_anova = anova_calc()
+print(my_anova)
+
+# ----------------------------------------
+# FUNCTION anova_plot
+# description: description
+# inputs: input_description
+# outputs: output_description
+##########################################
+anova_plot = function(df=my_df) {
+  
+  plot = ggplot2::ggplot(df) +
+    aes(x=treatment,y=chla_conc) +
+    geom_boxplot()
+  
+  suppressMessages(print(plot))
+  
+  return(plot)
+  
+}
+# ----------------------------------------
+
+my_plot = anova_plot()
+print(my_plot)
 
 ```
 
+#### 2. Once your code is up and working, modify your program to do something else: record a new summary variable, code a new statistical analysis, or create a different set of random variables or output graph. Do not rewrite any of your existing functions. Instead, copy them, rename them, and then modify them to do new things. Once your new functions are written, add some more lines of program code, calling a mixture of your previous functions and your new functions to get the job done.
+
+Changing rgamma to rnorm:
+
+```{r}
+# ----------------------------------------
+# FUNCTION sim_data
+# description: description
+# inputs: sample size, means, sdeviations
+# outputs: data frame
+##########################################
+sim_data = function(size=n_size,mean=n_mean,sd=n_sd) {
+  ID = 1:sum(n_size)
+  
+  chla_conc = c(rnorm(n=size[1],mean=mean[1],sd=sd[1]),
+                rnorm(n=size[2],mean=mean[2],sd=sd[2]),
+                rnorm(n=size[3],mean=mean[3],sd=sd[3]),
+                rnorm(n=size[4],mean=mean[4],sd=sd[4]))
+  
+  treatment = rep(n_name,n_size)
+  
+  d_frame = data.frame(ID,treatment,chla_conc)
+  
+  return(d_frame)
+}
+
+# ----------------------------------------
+
+my_df = sim_data()
+print(my_df)
+
+# ----------------------------------------
+# FUNCTION anova_calc
+# description: description
+# inputs: input_description
+# outputs: output_description
+##########################################
+anova_calc = function(df=my_df) {
+  
+  anova_model = aov(df$chla_conc~df$treatment,data=df)
+  z = summary(anova_model)
+  flat_out = unlist(z)
+  anova_stats = list(f_ratio = unlist(z)[7],
+                     f_pval = unlist(z)[9])
+  
+  return(anova_stats)
+}
+
+# ----------------------------------------
+
+my_anova = anova_calc()
+print(my_anova)
+
+# ----------------------------------------
+# FUNCTION anova_plot
+# description: description
+# inputs: input_description
+# outputs: output_description
+##########################################
+anova_plot = function(df=my_df) {
+  
+  plot = ggplot2::ggplot(df) +
+    aes(x=treatment,y=chla_conc) +
+    geom_boxplot()
+  
+  suppressMessages(print(plot))
+  
+  return(plot)
+  
+}
+# ----------------------------------------
+
+my_plot = anova_plot()
+print(my_plot)
+
+```

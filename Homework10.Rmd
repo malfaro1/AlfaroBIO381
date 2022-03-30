@@ -1,0 +1,11 @@
+---
+title: "Homework 10"
+author: "Maria Alfaro"
+date: "3/30/2022"
+output:
+  prettydoc::html_pretty:
+    theme: leonids
+    highlight: github
+---
+
+[Home Page](index.html)

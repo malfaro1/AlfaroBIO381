@@ -149,7 +149,13 @@ a.sourceLine {
 <h4>1. Use the code that you worked on in Homework #8 (creating fake data sets), and re-organize it following the principles of structured programming. Do all the work in a single chunk in your R markdown file, just as if you were writing a single R script. Start with all of your annotated functions, preliminary calls, and global variables. The program body should be only a few lines of code that call the appropriate functions and run them in the correct order. Make sure that the output from one function serves as the input to the next. You can either daisy-chain the functions or write separate lines of code to hold elements in temporary variables and pass them along.</h4>
 <div id="precalculations-for-shape-and-scale-using-mean-and-variance" class="section level5">
 <h5>Precalculations for shape and scale using mean and variance</h5>
-<p><strong>because:</strong> # mean=shape*scale <strong>then:</strong> # shape = mean/scale # scale = mean/shape</p>
+<p><strong>because:</strong> <span class="math display">\[
+mean=shape*scale
+\]</span> <strong>then:</strong> <span class="math display">\[
+shape = mean/scale
+\]</span> <span class="math display">\[
+scale = mean/shape
+\]</span></p>
 <p><strong>because:</strong> <span class="math display">\[
 variance=shape*scale^2
 \]</span> <strong>then:</strong> <span class="math display">\[
@@ -203,30 +209,254 @@ shape = mean^2 / variance
 <span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a><span class="co"># outputs: data frame</span></span>
 <span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a><span class="do">##########################################</span></span>
 <span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a>sim_data <span class="ot">=</span> <span class="cf">function</span>(<span class="at">size=</span>n_size,<span class="at">shape=</span>n_shape,<span class="at">scale=</span>n_scale) {</span>
-<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a>  d_frame <span class="ot">=</span> <span class="fu">data.frame</span>(<span class="at">varA=</span><span class="fu">rgamma</span>(<span class="at">n=</span>size[<span class="dv">1</span>],<span class="at">shape=</span>shape[<span class="dv">1</span>],<span class="at">scale=</span>scale[<span class="dv">1</span>]),</span>
-<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a>                       <span class="at">varB=</span><span class="fu">rgamma</span>(<span class="at">n=</span>size[<span class="dv">2</span>],<span class="at">shape=</span>shape[<span class="dv">2</span>],<span class="at">scale=</span>scale[<span class="dv">2</span>]),</span>
-<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a>                       <span class="at">varC=</span><span class="fu">rgamma</span>(<span class="at">n=</span>size[<span class="dv">3</span>],<span class="at">shape=</span>shape[<span class="dv">3</span>],<span class="at">scale=</span>scale[<span class="dv">3</span>]),</span>
-<span id="cb6-31"><a href="#cb6-31" aria-hidden="true" tabindex="-1"></a>                       <span class="at">varD=</span><span class="fu">rgamma</span>(<span class="at">n=</span>size[<span class="dv">4</span>],<span class="at">shape=</span>shape[<span class="dv">4</span>],<span class="at">scale=</span>scale[<span class="dv">4</span>]))</span>
-<span id="cb6-32"><a href="#cb6-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(d_frame)</span>
-<span id="cb6-33"><a href="#cb6-33" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb6-34"><a href="#cb6-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-35"><a href="#cb6-35" aria-hidden="true" tabindex="-1"></a><span class="co"># ----------------------------------------</span></span>
-<span id="cb6-36"><a href="#cb6-36" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-37"><a href="#cb6-37" aria-hidden="true" tabindex="-1"></a><span class="fu">sim_data</span>()</span></code></pre></div>
-<pre><code>##            varA         varB     varC      varD
-## 1  1.197228e-02 9.430886e-06 6.945760 2.8049271
-## 2  2.390779e-10 2.316052e-06 5.601478 3.8628772
-## 3  3.575013e+00 7.322475e-01 4.810721 0.4004970
-## 4  2.332924e-05 4.457999e-05 4.850578 2.4139317
-## 5  1.978622e-14 3.101912e+01 7.025424 1.9632287
-## 6  1.156625e+00 1.378599e-02 5.449150 3.1242841
-## 7  1.682879e-04 1.294233e-01 6.104992 2.3276250
-## 8  7.848987e+00 6.228972e-02 5.231138 0.3306393
-## 9  6.378239e-03 6.149867e-01 4.959190 1.9032193
-## 10 9.952783e-15 7.181810e-04 6.316683 2.4830622
-## 11 1.855977e-03 4.379489e-13 7.036761 3.1081361
-## 12 1.181982e-03 8.835214e-04 5.565723 4.5328218</code></pre>
+<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a>  ID <span class="ot">=</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">sum</span>(n_size)</span>
+<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a>  chla_conc <span class="ot">=</span> <span class="fu">c</span>(<span class="fu">rgamma</span>(<span class="at">n=</span>size[<span class="dv">1</span>],<span class="at">shape=</span>shape[<span class="dv">1</span>],<span class="at">scale=</span>scale[<span class="dv">1</span>]),</span>
+<span id="cb6-31"><a href="#cb6-31" aria-hidden="true" tabindex="-1"></a>                <span class="fu">rgamma</span>(<span class="at">n=</span>size[<span class="dv">2</span>],<span class="at">shape=</span>shape[<span class="dv">2</span>],<span class="at">scale=</span>scale[<span class="dv">2</span>]),</span>
+<span id="cb6-32"><a href="#cb6-32" aria-hidden="true" tabindex="-1"></a>                <span class="fu">rgamma</span>(<span class="at">n=</span>size[<span class="dv">3</span>],<span class="at">shape=</span>shape[<span class="dv">3</span>],<span class="at">scale=</span>scale[<span class="dv">3</span>]),</span>
+<span id="cb6-33"><a href="#cb6-33" aria-hidden="true" tabindex="-1"></a>                <span class="fu">rgamma</span>(<span class="at">n=</span>size[<span class="dv">4</span>],<span class="at">shape=</span>shape[<span class="dv">4</span>],<span class="at">scale=</span>scale[<span class="dv">4</span>]))</span>
+<span id="cb6-34"><a href="#cb6-34" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb6-35"><a href="#cb6-35" aria-hidden="true" tabindex="-1"></a>  treatment <span class="ot">=</span> <span class="fu">rep</span>(n_name,n_size)</span>
+<span id="cb6-36"><a href="#cb6-36" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb6-37"><a href="#cb6-37" aria-hidden="true" tabindex="-1"></a>  d_frame <span class="ot">=</span> <span class="fu">data.frame</span>(ID,treatment,chla_conc)</span>
+<span id="cb6-38"><a href="#cb6-38" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb6-39"><a href="#cb6-39" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(d_frame)</span>
+<span id="cb6-40"><a href="#cb6-40" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb6-41"><a href="#cb6-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-42"><a href="#cb6-42" aria-hidden="true" tabindex="-1"></a><span class="co"># ----------------------------------------</span></span>
+<span id="cb6-43"><a href="#cb6-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-44"><a href="#cb6-44" aria-hidden="true" tabindex="-1"></a>my_df <span class="ot">=</span> <span class="fu">sim_data</span>()</span>
+<span id="cb6-45"><a href="#cb6-45" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(my_df)</span></code></pre></div>
+<pre><code>##    ID treatment    chla_conc
+## 1   1   Control 5.032431e-01
+## 2   2   Control 8.716588e-02
+## 3   3   Control 1.252431e+00
+## 4   4   Control 2.247376e-02
+## 5   5   Control 1.230652e-08
+## 6   6   Control 1.515078e-06
+## 7   7   Control 6.320461e-04
+## 8   8   Control 5.032060e-04
+## 9   9   Control 3.680527e-11
+## 10 10   Control 1.071701e-03
+## 11 11   Control 2.699798e-04
+## 12 12   Control 2.411661e+00
+## 13 13        Fe 8.600485e-02
+## 14 14        Fe 4.118113e-18
+## 15 15        Fe 1.511460e-04
+## 16 16        Fe 2.420220e-01
+## 17 17        Fe 4.590968e+00
+## 18 18        Fe 4.754914e+00
+## 19 19        Fe 9.219515e-05
+## 20 20        Fe 2.969996e-01
+## 21 21        Fe 7.307874e-10
+## 22 22        Fe 6.005609e-01
+## 23 23        Fe 1.870622e-03
+## 24 24        Fe 2.914075e-05
+## 25 25  Fe, P, N 5.029754e+00
+## 26 26  Fe, P, N 4.453938e+00
+## 27 27  Fe, P, N 7.659168e+00
+## 28 28  Fe, P, N 7.437445e+00
+## 29 29  Fe, P, N 5.825980e+00
+## 30 30  Fe, P, N 4.336396e+00
+## 31 31  Fe, P, N 4.374081e+00
+## 32 32  Fe, P, N 5.047326e+00
+## 33 33  Fe, P, N 3.918535e+00
+## 34 34  Fe, P, N 5.561596e+00
+## 35 35  Fe, P, N 6.481317e+00
+## 36 36  Fe, P, N 4.970266e+00
+## 37 37      P, N 6.286053e+00
+## 38 38      P, N 6.910204e+00
+## 39 39      P, N 1.651021e+00
+## 40 40      P, N 1.750040e+00
+## 41 41      P, N 4.355834e+00
+## 42 42      P, N 6.165407e+00
+## 43 43      P, N 1.465521e+00
+## 44 44      P, N 3.594347e+00
+## 45 45      P, N 6.648466e-01
+## 46 46      P, N 9.074557e+00
+## 47 47      P, N 3.711822e+00
+## 48 48      P, N 1.349554e+00</code></pre>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ----------------------------------------</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co"># FUNCTION anova_calc</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co"># description: description</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co"># inputs: input_description</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="co"># outputs: output_description</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="do">##########################################</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>anova_calc <span class="ot">=</span> <span class="cf">function</span>(<span class="at">df=</span>my_df) {</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>  anova_model <span class="ot">=</span> <span class="fu">aov</span>(df<span class="sc">$</span>chla_conc<span class="sc">~</span>df<span class="sc">$</span>treatment,<span class="at">data=</span>df)</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>  z <span class="ot">=</span> <span class="fu">summary</span>(anova_model)</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>  flat_out <span class="ot">=</span> <span class="fu">unlist</span>(z)</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>  anova_stats <span class="ot">=</span> <span class="fu">list</span>(<span class="at">f_ratio =</span> <span class="fu">unlist</span>(z)[<span class="dv">7</span>],</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>                     <span class="at">f_pval =</span> <span class="fu">unlist</span>(z)[<span class="dv">9</span>])</span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(anova_stats)</span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a><span class="co"># ----------------------------------------</span></span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>my_anova <span class="ot">=</span> <span class="fu">anova_calc</span>()</span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(my_anova)</span></code></pre></div>
+<pre><code>## $f_ratio
+## F value1 
+## 22.73488 
+## 
+## $f_pval
+##     Pr(&gt;F)1 
+## 4.83672e-09</code></pre>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ----------------------------------------</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="co"># FUNCTION anova_plot</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="co"># description: description</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="co"># inputs: input_description</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="co"># outputs: output_description</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="do">##########################################</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>anova_plot <span class="ot">=</span> <span class="cf">function</span>(<span class="at">df=</span>my_df) {</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>  plot <span class="ot">=</span> ggplot2<span class="sc">::</span><span class="fu">ggplot</span>(df) <span class="sc">+</span></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">x=</span>treatment,<span class="at">y=</span>chla_conc) <span class="sc">+</span></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_boxplot</span>()</span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">suppressMessages</span>(<span class="fu">print</span>(plot))</span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(plot)</span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a><span class="co"># ----------------------------------------</span></span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a>my_plot <span class="ot">=</span> <span class="fu">anova_plot</span>()</span></code></pre></div>
+<p><img src="data:image/png;base64,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" /><!-- --></p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(my_plot)</span></code></pre></div>
+<p><img src="data:image/png;base64,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" /><!-- --></p>
 </div>
+</div>
+<div id="once-your-code-is-up-and-working-modify-your-program-to-do-something-else-record-a-new-summary-variable-code-a-new-statistical-analysis-or-create-a-different-set-of-random-variables-or-output-graph.-do-not-rewrite-any-of-your-existing-functions.-instead-copy-them-rename-them-and-then-modify-them-to-do-new-things.-once-your-new-functions-are-written-add-some-more-lines-of-program-code-calling-a-mixture-of-your-previous-functions-and-your-new-functions-to-get-the-job-done." class="section level4">
+<h4>2. Once your code is up and working, modify your program to do something else: record a new summary variable, code a new statistical analysis, or create a different set of random variables or output graph. Do not rewrite any of your existing functions. Instead, copy them, rename them, and then modify them to do new things. Once your new functions are written, add some more lines of program code, calling a mixture of your previous functions and your new functions to get the job done.</h4>
+<p>Changing rgamma to rnorm:</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ----------------------------------------</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="co"># FUNCTION sim_data</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="co"># description: description</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="co"># inputs: sample size, means, sdeviations</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="co"># outputs: data frame</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="do">##########################################</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>sim_data <span class="ot">=</span> <span class="cf">function</span>(<span class="at">size=</span>n_size,<span class="at">mean=</span>n_mean,<span class="at">sd=</span>n_sd) {</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>  ID <span class="ot">=</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">sum</span>(n_size)</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>  chla_conc <span class="ot">=</span> <span class="fu">c</span>(<span class="fu">rnorm</span>(<span class="at">n=</span>size[<span class="dv">1</span>],<span class="at">mean=</span>mean[<span class="dv">1</span>],<span class="at">sd=</span>sd[<span class="dv">1</span>]),</span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>                <span class="fu">rnorm</span>(<span class="at">n=</span>size[<span class="dv">2</span>],<span class="at">mean=</span>mean[<span class="dv">2</span>],<span class="at">sd=</span>sd[<span class="dv">2</span>]),</span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>                <span class="fu">rnorm</span>(<span class="at">n=</span>size[<span class="dv">3</span>],<span class="at">mean=</span>mean[<span class="dv">3</span>],<span class="at">sd=</span>sd[<span class="dv">3</span>]),</span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>                <span class="fu">rnorm</span>(<span class="at">n=</span>size[<span class="dv">4</span>],<span class="at">mean=</span>mean[<span class="dv">4</span>],<span class="at">sd=</span>sd[<span class="dv">4</span>]))</span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>  treatment <span class="ot">=</span> <span class="fu">rep</span>(n_name,n_size)</span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a>  d_frame <span class="ot">=</span> <span class="fu">data.frame</span>(ID,treatment,chla_conc)</span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(d_frame)</span>
+<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a><span class="co"># ----------------------------------------</span></span>
+<span id="cb12-23"><a href="#cb12-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-24"><a href="#cb12-24" aria-hidden="true" tabindex="-1"></a>my_df <span class="ot">=</span> <span class="fu">sim_data</span>()</span>
+<span id="cb12-25"><a href="#cb12-25" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(my_df)</span></code></pre></div>
+<pre><code>##    ID treatment chla_conc
+## 1   1   Control  1.102324
+## 2   2   Control  1.123430
+## 3   3   Control  1.166888
+## 4   4   Control  1.233632
+## 5   5   Control  1.257347
+## 6   6   Control  1.144966
+## 7   7   Control  1.162795
+## 8   8   Control  1.190889
+## 9   9   Control  1.149275
+## 10 10   Control  1.216137
+## 11 11   Control  1.137425
+## 12 12   Control  1.210018
+## 13 13        Fe  1.272450
+## 14 14        Fe  1.240321
+## 15 15        Fe  1.355497
+## 16 16        Fe  1.233076
+## 17 17        Fe  1.248809
+## 18 18        Fe  1.314302
+## 19 19        Fe  1.289026
+## 20 20        Fe  1.297006
+## 21 21        Fe  1.404607
+## 22 22        Fe  1.263892
+## 23 23        Fe  1.336357
+## 24 24        Fe  1.369098
+## 25 25  Fe, P, N  7.510035
+## 26 26  Fe, P, N  5.300366
+## 27 27  Fe, P, N  5.293436
+## 28 28  Fe, P, N  7.209535
+## 29 29  Fe, P, N  6.174506
+## 30 30  Fe, P, N  5.197237
+## 31 31  Fe, P, N  6.268817
+## 32 32  Fe, P, N  5.671865
+## 33 33  Fe, P, N  6.100308
+## 34 34  Fe, P, N  6.136944
+## 35 35  Fe, P, N  4.781756
+## 36 36  Fe, P, N  5.258187
+## 37 37      P, N  3.385468
+## 38 38      P, N  3.251259
+## 39 39      P, N  2.959419
+## 40 40      P, N  2.736772
+## 41 41      P, N  2.772174
+## 42 42      P, N  3.365274
+## 43 43      P, N  2.974364
+## 44 44      P, N  3.075309
+## 45 45      P, N  3.070220
+## 46 46      P, N  2.894846
+## 47 47      P, N  2.738186
+## 48 48      P, N  2.805975</code></pre>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ----------------------------------------</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="co"># FUNCTION anova_calc</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="co"># description: description</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="co"># inputs: input_description</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="co"># outputs: output_description</span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="do">##########################################</span></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>anova_calc <span class="ot">=</span> <span class="cf">function</span>(<span class="at">df=</span>my_df) {</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>  anova_model <span class="ot">=</span> <span class="fu">aov</span>(df<span class="sc">$</span>chla_conc<span class="sc">~</span>df<span class="sc">$</span>treatment,<span class="at">data=</span>df)</span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>  z <span class="ot">=</span> <span class="fu">summary</span>(anova_model)</span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>  flat_out <span class="ot">=</span> <span class="fu">unlist</span>(z)</span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>  anova_stats <span class="ot">=</span> <span class="fu">list</span>(<span class="at">f_ratio =</span> <span class="fu">unlist</span>(z)[<span class="dv">7</span>],</span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>                     <span class="at">f_pval =</span> <span class="fu">unlist</span>(z)[<span class="dv">9</span>])</span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(anova_stats)</span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a><span class="co"># ----------------------------------------</span></span>
+<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-20"><a href="#cb14-20" aria-hidden="true" tabindex="-1"></a>my_anova <span class="ot">=</span> <span class="fu">anova_calc</span>()</span>
+<span id="cb14-21"><a href="#cb14-21" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(my_anova)</span></code></pre></div>
+<pre><code>## $f_ratio
+## F value1 
+## 312.8228 
+## 
+## $f_pval
+##      Pr(&gt;F)1 
+## 1.112758e-29</code></pre>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ----------------------------------------</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="co"># FUNCTION anova_plot</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="co"># description: description</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="co"># inputs: input_description</span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="co"># outputs: output_description</span></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="do">##########################################</span></span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>anova_plot <span class="ot">=</span> <span class="cf">function</span>(<span class="at">df=</span>my_df) {</span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>  plot <span class="ot">=</span> ggplot2<span class="sc">::</span><span class="fu">ggplot</span>(df) <span class="sc">+</span></span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">x=</span>treatment,<span class="at">y=</span>chla_conc) <span class="sc">+</span></span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_boxplot</span>()</span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">suppressMessages</span>(<span class="fu">print</span>(plot))</span>
+<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(plot)</span>
+<span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb16-17"><a href="#cb16-17" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb16-18"><a href="#cb16-18" aria-hidden="true" tabindex="-1"></a><span class="co"># ----------------------------------------</span></span>
+<span id="cb16-19"><a href="#cb16-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-20"><a href="#cb16-20" aria-hidden="true" tabindex="-1"></a>my_plot <span class="ot">=</span> <span class="fu">anova_plot</span>()</span></code></pre></div>
+<p><img src="data:image/png;base64,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" /><!-- --></p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(my_plot)</span></code></pre></div>
+<p><img src="data:image/png;base64,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" /><!-- --></p>
 </div>
 </article>
 </div>

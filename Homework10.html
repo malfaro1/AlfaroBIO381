@@ -18,6 +18,99 @@
 <script src="data:application/javascript;base64,Ly8gUGFuZG9jIDIuOSBhZGRzIGF0dHJpYnV0ZXMgb24gYm90aCBoZWFkZXIgYW5kIGRpdi4gV2UgcmVtb3ZlIHRoZSBmb3JtZXIgKHRvCi8vIGJlIGNvbXBhdGlibGUgd2l0aCB0aGUgYmVoYXZpb3Igb2YgUGFuZG9jIDwgMi44KS4KZG9jdW1lbnQuYWRkRXZlbnRMaXN0ZW5lcignRE9NQ29udGVudExvYWRlZCcsIGZ1bmN0aW9uKGUpIHsKICB2YXIgaHMgPSBkb2N1bWVudC5xdWVyeVNlbGVjdG9yQWxsKCJkaXYuc2VjdGlvbltjbGFzcyo9J2xldmVsJ10gPiA6Zmlyc3QtY2hpbGQiKTsKICB2YXIgaSwgaCwgYTsKICBmb3IgKGkgPSAwOyBpIDwgaHMubGVuZ3RoOyBpKyspIHsKICAgIGggPSBoc1tpXTsKICAgIGlmICghL15oWzEtNl0kL2kudGVzdChoLnRhZ05hbWUpKSBjb250aW51ZTsgIC8vIGl0IHNob3VsZCBiZSBhIGhlYWRlciBoMS1oNgogICAgYSA9IGguYXR0cmlidXRlczsKICAgIHdoaWxlIChhLmxlbmd0aCA+IDApIGgucmVtb3ZlQXR0cmlidXRlKGFbMF0ubmFtZSk7CiAgfQp9KTsK"></script>
 
 
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css" data-origin="pandoc">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+
+/* A workaround for https://github.com/jgm/pandoc/issues/4278 */
+a.sourceLine {
+  pointer-events: auto;
+}
+
+</style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    for (var j = 0; j < rules.length; j++) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") continue;
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' && rule.style.backgroundColor === '') continue;
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
 
 
 
@@ -52,6 +145,184 @@
 <div id="post">
 <article class="post-content">
 <p><a href="index.html">Home Page</a></p>
+<div id="using-a-for-loop-write-a-function-to-calculate-the-number-of-zeroes-in-a-numeric-vector.-before-entering-the-loop-set-up-a-counter-variable-counter---0.-inside-the-loop-add-1-to-counter-each-time-you-have-a-zero-in-the-vector.-finally-use-returncounter-for-the-output." class="section level4">
+<h4>1. Using a for loop, write a function to calculate the number of zeroes in a numeric vector. Before entering the loop, set up a counter variable counter &lt;- 0. Inside the loop, add 1 to counter each time you have a zero in the vector. Finally, use return(counter) for the output.</h4>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>counter <span class="ot">=</span> <span class="dv">0</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>pre_vec <span class="ot">=</span> <span class="fu">runif</span>(<span class="dv">0</span><span class="sc">:</span><span class="dv">100</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>my_vec <span class="ot">=</span> <span class="fu">ifelse</span>(pre_vec<span class="sc">&gt;</span><span class="fl">0.5</span>,<span class="dv">1</span>,<span class="dv">0</span>)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(my_vec)</span></code></pre></div>
+<pre><code>##   [1] 1 1 1 0 0 0 0 1 0 0 0 1 0 1 0 0 1 1 1 1 0 0 0 0 0 1 1 0 0 1 1 1 1 0 0 0 0
+##  [38] 1 0 0 0 1 1 0 1 0 0 0 1 0 1 0 0 0 0 1 0 0 0 1 1 1 1 0 0 0 1 1 0 1 1 0 1 0
+##  [75] 0 0 1 0 0 0 0 0 0 0 1 0 1 0 0 0 0 1 1 0 1 1 0 1 1 1 0</code></pre>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>count_myvec <span class="ot">=</span> <span class="cf">function</span>(<span class="at">counter=</span><span class="dv">0</span>){</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(my_vec)){</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(my_vec[i]<span class="sc">==</span><span class="dv">0</span>){</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    counter <span class="ot">=</span> counter <span class="sc">+</span> <span class="dv">1</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(counter)</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="fu">count_myvec</span>()</span></code></pre></div>
+<pre><code>## [1] 59</code></pre>
+</div>
+<div id="use-subsetting-instead-of-a-loop-to-rewrite-the-function-as-a-single-line-of-code." class="section level4">
+<h4>2. Use subsetting instead of a loop to rewrite the function as a single line of code.</h4>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>count_myvec2 <span class="ot">=</span> <span class="cf">function</span>(<span class="at">counter=</span><span class="dv">0</span>){</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">length</span>(my_vec[my_vec <span class="sc">==</span> <span class="dv">0</span>])</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="fu">count_myvec2</span>()</span></code></pre></div>
+<pre><code>## [1] 59</code></pre>
+</div>
+<div id="write-a-function-that-takes-as-input-two-integers-representing-the-number-of-rows-and-columns-in-a-matrix.-the-output-is-a-matrix-of-these-dimensions-in-which-each-element-is-the-product-of-the-row-number-x-the-column-number." class="section level4">
+<h4>3. Write a function that takes as input two integers representing the number of rows and columns in a matrix. The output is a matrix of these dimensions in which each element is the product of the row number x the column number.</h4>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>timestable <span class="ot">=</span> <span class="cf">function</span>(<span class="at">x=</span><span class="dv">9</span>,<span class="at">y=</span><span class="dv">10</span>){</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  makeTT <span class="ot">=</span> <span class="fu">matrix</span>(<span class="at">nrow=</span>y,<span class="at">ncol=</span>x)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(makeTT)){</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span>(j <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">ncol</span>(makeTT)){</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>      makeTT[i,j] <span class="ot">=</span> i<span class="sc">*</span>j</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="fu">return</span>(makeTT)  </span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>ninebyten <span class="ot">=</span> <span class="fu">timestable</span>()</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(ninebyten)</span></code></pre></div>
+<pre><code>##       [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9]
+##  [1,]    1    2    3    4    5    6    7    8    9
+##  [2,]    2    4    6    8   10   12   14   16   18
+##  [3,]    3    6    9   12   15   18   21   24   27
+##  [4,]    4    8   12   16   20   24   28   32   36
+##  [5,]    5   10   15   20   25   30   35   40   45
+##  [6,]    6   12   18   24   30   36   42   48   54
+##  [7,]    7   14   21   28   35   42   49   56   63
+##  [8,]    8   16   24   32   40   48   56   64   72
+##  [9,]    9   18   27   36   45   54   63   72   81
+## [10,]   10   20   30   40   50   60   70   80   90</code></pre>
+</div>
+<div id="in-the-next-few-lectures-you-will-learn-how-to-do-a-randomization-test-on-your-data.-we-will-complete-some-of-the-steps-today-to-practice-calling-custom-functions-within-a-for-loop.-use-the-code-from-the-march-31st-lecture-randomization-tests-to-complete-the-following-steps" class="section level4">
+<h4>4. In the next few lectures, you will learn how to do a randomization test on your data. We will complete some of the steps today to practice calling custom functions within a for loop. Use the code from the March 31st lecture (Randomization Tests) to complete the following steps:</h4>
+<div id="a.-simulate-a-dataset-with-3-groups-of-data-each-group-drawn-from-a-distribution-with-a-different-mean.-the-final-data-frame-should-have-1-column-for-group-and-1-column-for-the-response-variable." class="section level5">
+<h5>a. Simulate a dataset with 3 groups of data, each group drawn from a distribution with a different mean. The final data frame should have 1 column for group and 1 column for the response variable.</h5>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>group1 <span class="ot">=</span> <span class="fu">rnorm</span>(<span class="at">n=</span><span class="dv">20</span>,<span class="at">mean=</span><span class="dv">5</span>,<span class="at">sd=</span><span class="fl">0.1</span>)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>group2 <span class="ot">=</span> <span class="fu">rnorm</span>(<span class="at">n=</span><span class="dv">20</span>,<span class="at">mean=</span><span class="dv">10</span>,<span class="at">sd=</span><span class="fl">0.1</span>)</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>group3 <span class="ot">=</span> <span class="fu">rnorm</span>(<span class="at">n=</span><span class="dv">20</span>,<span class="at">mean=</span><span class="dv">15</span>,<span class="at">sd=</span><span class="fl">0.1</span>)</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>group <span class="ot">=</span> <span class="fu">c</span>(<span class="fu">rep</span>(<span class="st">&quot;group1&quot;</span>,<span class="dv">20</span>),<span class="fu">rep</span>(<span class="st">&quot;group2&quot;</span>,<span class="dv">20</span>),<span class="fu">rep</span>(<span class="st">&quot;group3&quot;</span>,<span class="dv">20</span>))</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>response <span class="ot">=</span> <span class="fu">c</span>(group1,group2,group3)</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>my_df <span class="ot">=</span> <span class="fu">data.frame</span>(group,response)</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(my_df)</span></code></pre></div>
+<pre><code>##     group  response
+## 1  group1  4.983839
+## 2  group1  5.010091
+## 3  group1  4.963629
+## 4  group1  4.892832
+## 5  group1  5.067335
+## 6  group1  4.934217
+## 7  group1  5.092518
+## 8  group1  4.926049
+## 9  group1  4.994478
+## 10 group1  5.032117
+## 11 group1  5.107089
+## 12 group1  4.829909
+## 13 group1  5.153124
+## 14 group1  4.897788
+## 15 group1  4.842528
+## 16 group1  4.945512
+## 17 group1  4.862542
+## 18 group1  4.925362
+## 19 group1  5.039524
+## 20 group1  4.958540
+## 21 group2  9.998499
+## 22 group2  9.923204
+## 23 group2  9.982895
+## 24 group2 10.007561
+## 25 group2  9.873422
+## 26 group2  9.929179
+## 27 group2 10.108522
+## 28 group2 10.114475
+## 29 group2  9.901970
+## 30 group2 10.045054
+## 31 group2  9.991089
+## 32 group2  9.798587
+## 33 group2  9.948889
+## 34 group2  9.934368
+## 35 group2 10.083504
+## 36 group2 10.013140
+## 37 group2 10.248613
+## 38 group2  9.968142
+## 39 group2 10.145658
+## 40 group2  9.845390
+## 41 group3 15.028224
+## 42 group3 15.161072
+## 43 group3 15.038556
+## 44 group3 14.750583
+## 45 group3 15.017382
+## 46 group3 15.139565
+## 47 group3 14.911497
+## 48 group3 15.169666
+## 49 group3 15.104113
+## 50 group3 14.980776
+## 51 group3 14.976538
+## 52 group3 15.039150
+## 53 group3 14.966974
+## 54 group3 15.104655
+## 55 group3 14.800597
+## 56 group3 15.011345
+## 57 group3 15.040940
+## 58 group3 14.949667
+## 59 group3 14.870516
+## 60 group3 14.962078</code></pre>
+</div>
+<div id="b.-write-a-custom-function-that-1-reshuffles-the-response-variable-and-2-calculates-the-mean-of-each-group-in-the-reshuffled-data.-store-the-means-in-a-vector-of-length-3." class="section level5">
+<h5>b. Write a custom function that 1) reshuffles the response variable, and 2) calculates the mean of each group in the reshuffled data. Store the means in a vector of length 3.</h5>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span></code></pre></div>
+<pre><code>## 
+## Attaching package: &#39;dplyr&#39;</code></pre>
+<pre><code>## The following objects are masked from &#39;package:stats&#39;:
+## 
+##     filter, lag</code></pre>
+<pre><code>## The following objects are masked from &#39;package:base&#39;:
+## 
+##     intersect, setdiff, setequal, union</code></pre>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>shuffle_calcmeans <span class="ot">=</span> <span class="cf">function</span>(<span class="at">df=</span>my_df){</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  shuff_resp <span class="ot">=</span> <span class="fu">sample</span>(df<span class="sc">$</span>response)</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  shuff_df <span class="ot">=</span> <span class="fu">data.frame</span>(group,shuff_resp)</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>  group_means <span class="ot">=</span> <span class="fu">aggregate</span>(shuff_df<span class="sc">$</span>shuff_resp,<span class="fu">list</span>(shuff_df<span class="sc">$</span>group),<span class="at">FUN=</span>mean)</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>  vec_means <span class="ot">=</span> group_means<span class="sc">$</span>x</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(vec_means)</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>shuff_means <span class="ot">=</span> <span class="fu">shuffle_calcmeans</span>()   </span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(shuff_means)</span></code></pre></div>
+<pre><code>## [1]  9.993089  9.710254 10.263911</code></pre>
+</div>
+<div id="c.-use-a-for-loop-to-repeat-the-function-in-b-100-times.-store-the-results-in-a-data-frame-that-has-1-column-indicating-the-replicate-number-and-1-column-for-each-new-group-mean-for-a-total-of-4-columns." class="section level5">
+<h5>c. Use a for loop to repeat the function in b 100 times. Store the results in a data frame that has 1 column indicating the replicate number and 1 column for each new group mean, for a total of 4 columns.</h5>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>hun_shuff_df <span class="ot">=</span> <span class="fu">data.frame</span>(<span class="at">replicate=</span><span class="cn">NA</span>,<span class="at">group1_mean=</span><span class="cn">NA</span>,<span class="at">group2_mean=</span><span class="cn">NA</span>,<span class="at">group3_mean=</span><span class="cn">NA</span>)</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>){</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>  hun_shuff_df[i,] <span class="ot">=</span> <span class="fu">c</span>(i,<span class="fu">shuffle_calcmeans</span>())</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+</div>
+<div id="d.-use-qplot-to-create-a-histogram-of-the-means-for-each-reshuffled-group.-or-if-you-want-a-challenge-use-ggplot-to-overlay-all-3-histograms-in-the-same-figure.-how-do-the-distributions-of-reshuffled-means-compare-to-the-original-means" class="section level5">
+<h5>d. Use qplot() to create a histogram of the means for each reshuffled group. Or, if you want a challenge, use ggplot() to overlay all 3 histograms in the same figure. How do the distributions of reshuffled means compare to the original means?</h5>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>final_df <span class="ot">=</span> <span class="fu">pivot_longer</span>(hun_shuff_df,<span class="fu">c</span>(<span class="st">&quot;group1_mean&quot;</span>,<span class="st">&quot;group2_mean&quot;</span>,<span class="st">&quot;group3_mean&quot;</span>),<span class="at">names_to=</span><span class="st">&quot;group&quot;</span>,<span class="at">values_to=</span><span class="st">&quot;means&quot;</span>)</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>final_df <span class="ot">=</span> <span class="fu">select</span>(final_df,<span class="sc">-</span><span class="st">&quot;replicate&quot;</span>)</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>hun_shuff_plot <span class="ot">=</span> <span class="fu">ggplot</span>(final_df,<span class="fu">aes</span>(<span class="at">x=</span>means,<span class="at">fill=</span>group)) <span class="sc">+</span></span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>(<span class="dv">12</span>) <span class="sc">+</span></span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">color=</span><span class="st">&#39;#e9ecef&#39;</span>,<span class="at">alpha=</span><span class="fl">0.4</span>,<span class="at">position=</span><span class="st">&#39;identity&#39;</span>,<span class="at">bins=</span><span class="dv">30</span>)</span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a>hun_shuff_plot</span></code></pre></div>
+<p><img src="data:image/png;base64,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" /><!-- --> The reshuffled means are all around 10, whereas the original means were more distinctly different (5,10,15).</p>
+</div>
+</div>
 </article>
 </div>
 </div>

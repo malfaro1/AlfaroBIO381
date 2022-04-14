@@ -14,21 +14,107 @@ output:
 
 ```{r}
 counter = 0
+pre_vec = runif(0:100)
+my_vec = ifelse(pre_vec>0.5,1,0)
+print(my_vec)
 
-
+count_myvec = function(counter=0){
+  for(i in 1:length(my_vec)){
+  if(my_vec[i]==0){
+    counter = counter + 1
+  }
+  }
+  return(counter)
+}
+count_myvec()
 ```
 
-
 #### 2. Use subsetting instead of a loop to rewrite the function as a single line of code.
+```{r}
+count_myvec2 = function(counter=0){
+  length(my_vec[my_vec == 0])
+}
+count_myvec2()
+```
 
 #### 3. Write a function that takes as input two integers representing the number of rows and columns in a matrix. The output is a matrix of these dimensions in which each element is the product of the row number x the column number.
+```{r}
+timestable = function(x=9,y=10){
+  makeTT = matrix(nrow=y,ncol=x)
+  for(i in 1:nrow(makeTT)){
+    for(j in 1:ncol(makeTT)){
+      makeTT[i,j] = i*j
+    }
+  }
+return(makeTT)  
+}
+ninebyten = timestable()
+print(ninebyten)
+```
 
 #### 4. In the next few lectures, you will learn how to do a randomization test on your data. We will complete some of the steps today to practice calling custom functions within a for loop. Use the code from the March 31st lecture (Randomization Tests) to complete the following steps:
 
 ##### a. Simulate a dataset with 3 groups of data, each group drawn from a distribution with a different mean. The final data frame should have 1 column for group and 1 column for the response variable.
 
+```{r}
+group1 = rnorm(n=20,mean=5,sd=0.1)
+group2 = rnorm(n=20,mean=10,sd=0.1)
+group3 = rnorm(n=20,mean=15,sd=0.1)
+
+group = c(rep("group1",20),rep("group2",20),rep("group3",20))
+response = c(group1,group2,group3)
+
+my_df = data.frame(group,response)
+
+print(my_df)
+
+```
+
 ##### b. Write a custom function that 1) reshuffles the response variable, and 2) calculates the mean of each group in the reshuffled data. Store the means in a vector of length 3.
 
+```{r}
+library(dplyr)
+
+shuffle_calcmeans = function(df=my_df){
+  shuff_resp = sample(df$response)
+  shuff_df = data.frame(group,shuff_resp)
+  group_means = aggregate(shuff_df$shuff_resp,list(shuff_df$group),FUN=mean)
+  vec_means = group_means$x
+  
+  return(vec_means)
+}
+
+shuff_means = shuffle_calcmeans()   
+print(shuff_means)
+  
+```
+
 ##### c. Use a for loop to repeat the function in b 100 times. Store the results in a data frame that has 1 column indicating the replicate number and 1 column for each new group mean, for a total of 4 columns.
+```{r}
+hun_shuff_df = data.frame(replicate=NA,group1_mean=NA,group2_mean=NA,group3_mean=NA)
+  
+for(i in 1:100){
+  hun_shuff_df[i,] = c(i,shuffle_calcmeans())
+}
+
+```
+
 
 ##### d. Use qplot() to create a histogram of the means for each reshuffled group. Or, if you want a challenge, use ggplot() to overlay all 3 histograms in the same figure. How do the distributions of reshuffled means compare to the original means?
+
+```{r}
+library(ggplot2)
+library(tidyr)
+
+final_df = pivot_longer(hun_shuff_df,c("group1_mean","group2_mean","group3_mean"),names_to="group",values_to="means")
+final_df = select(final_df,-"replicate")
+
+hun_shuff_plot = ggplot(final_df,aes(x=means,fill=group)) +
+  theme_bw(12) +
+  geom_histogram(color='#e9ecef',alpha=0.4,position='identity',bins=30)
+  
+
+hun_shuff_plot
+
+```
+The reshuffled means are all around 10, whereas the original means were more distinctly different (5,10,15).

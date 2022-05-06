@@ -96,7 +96,7 @@ hun_shuff_df = data.frame(replicate=NA,group1_mean=NA,group2_mean=NA,group3_mean
 for(i in 1:100){
   hun_shuff_df[i,] = c(i,shuffle_calcmeans())
 }
-
+print(hun_shuff_df)
 ```
 
 

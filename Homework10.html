@@ -151,9 +151,9 @@ a.sourceLine {
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>pre_vec <span class="ot">=</span> <span class="fu">runif</span>(<span class="dv">0</span><span class="sc">:</span><span class="dv">100</span>)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>my_vec <span class="ot">=</span> <span class="fu">ifelse</span>(pre_vec<span class="sc">&gt;</span><span class="fl">0.5</span>,<span class="dv">1</span>,<span class="dv">0</span>)</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(my_vec)</span></code></pre></div>
-<pre><code>##   [1] 1 1 1 0 0 0 0 1 0 0 0 1 0 1 0 0 1 1 1 1 0 0 0 0 0 1 1 0 0 1 1 1 1 0 0 0 0
-##  [38] 1 0 0 0 1 1 0 1 0 0 0 1 0 1 0 0 0 0 1 0 0 0 1 1 1 1 0 0 0 1 1 0 1 1 0 1 0
-##  [75] 0 0 1 0 0 0 0 0 0 0 1 0 1 0 0 0 0 1 1 0 1 1 0 1 1 1 0</code></pre>
+<pre><code>##   [1] 1 1 1 1 1 0 0 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 1 1 1 0 0 0 0 0 1 1 1 0 0 1 1
+##  [38] 1 1 0 1 0 0 0 1 1 0 0 1 1 1 0 0 0 1 1 0 1 0 0 1 0 1 0 0 0 1 0 1 0 1 0 1 0
+##  [75] 1 0 0 0 1 1 0 0 0 1 0 0 1 0 1 0 1 0 1 1 1 1 0 0 0 1 1</code></pre>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>count_myvec <span class="ot">=</span> <span class="cf">function</span>(<span class="at">counter=</span><span class="dv">0</span>){</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(my_vec)){</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(my_vec[i]<span class="sc">==</span><span class="dv">0</span>){</span>
@@ -163,7 +163,7 @@ a.sourceLine {
 <span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(counter)</span>
 <span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>}</span>
 <span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="fu">count_myvec</span>()</span></code></pre></div>
-<pre><code>## [1] 59</code></pre>
+<pre><code>## [1] 52</code></pre>
 </div>
 <div id="use-subsetting-instead-of-a-loop-to-rewrite-the-function-as-a-single-line-of-code." class="section level4">
 <h4>2. Use subsetting instead of a loop to rewrite the function as a single line of code.</h4>
@@ -171,7 +171,7 @@ a.sourceLine {
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">length</span>(my_vec[my_vec <span class="sc">==</span> <span class="dv">0</span>])</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>}</span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="fu">count_myvec2</span>()</span></code></pre></div>
-<pre><code>## [1] 59</code></pre>
+<pre><code>## [1] 52</code></pre>
 </div>
 <div id="write-a-function-that-takes-as-input-two-integers-representing-the-number-of-rows-and-columns-in-a-matrix.-the-output-is-a-matrix-of-these-dimensions-in-which-each-element-is-the-product-of-the-row-number-x-the-column-number." class="section level4">
 <h4>3. Write a function that takes as input two integers representing the number of rows and columns in a matrix. The output is a matrix of these dimensions in which each element is the product of the row number x the column number.</h4>
@@ -213,66 +213,66 @@ a.sourceLine {
 <span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(my_df)</span></code></pre></div>
 <pre><code>##     group  response
-## 1  group1  4.983839
-## 2  group1  5.010091
-## 3  group1  4.963629
-## 4  group1  4.892832
-## 5  group1  5.067335
-## 6  group1  4.934217
-## 7  group1  5.092518
-## 8  group1  4.926049
-## 9  group1  4.994478
-## 10 group1  5.032117
-## 11 group1  5.107089
-## 12 group1  4.829909
-## 13 group1  5.153124
-## 14 group1  4.897788
-## 15 group1  4.842528
-## 16 group1  4.945512
-## 17 group1  4.862542
-## 18 group1  4.925362
-## 19 group1  5.039524
-## 20 group1  4.958540
-## 21 group2  9.998499
-## 22 group2  9.923204
-## 23 group2  9.982895
-## 24 group2 10.007561
-## 25 group2  9.873422
-## 26 group2  9.929179
-## 27 group2 10.108522
-## 28 group2 10.114475
-## 29 group2  9.901970
-## 30 group2 10.045054
-## 31 group2  9.991089
-## 32 group2  9.798587
-## 33 group2  9.948889
-## 34 group2  9.934368
-## 35 group2 10.083504
-## 36 group2 10.013140
-## 37 group2 10.248613
-## 38 group2  9.968142
-## 39 group2 10.145658
-## 40 group2  9.845390
-## 41 group3 15.028224
-## 42 group3 15.161072
-## 43 group3 15.038556
-## 44 group3 14.750583
-## 45 group3 15.017382
-## 46 group3 15.139565
-## 47 group3 14.911497
-## 48 group3 15.169666
-## 49 group3 15.104113
-## 50 group3 14.980776
-## 51 group3 14.976538
-## 52 group3 15.039150
-## 53 group3 14.966974
-## 54 group3 15.104655
-## 55 group3 14.800597
-## 56 group3 15.011345
-## 57 group3 15.040940
-## 58 group3 14.949667
-## 59 group3 14.870516
-## 60 group3 14.962078</code></pre>
+## 1  group1  4.917592
+## 2  group1  5.148940
+## 3  group1  4.911602
+## 4  group1  4.936133
+## 5  group1  5.031800
+## 6  group1  5.016486
+## 7  group1  4.893159
+## 8  group1  5.039505
+## 9  group1  5.048681
+## 10 group1  5.134871
+## 11 group1  4.931540
+## 12 group1  4.891423
+## 13 group1  5.058913
+## 14 group1  4.983532
+## 15 group1  5.118631
+## 16 group1  4.874312
+## 17 group1  5.095622
+## 18 group1  5.142073
+## 19 group1  4.948372
+## 20 group1  4.971372
+## 21 group2  9.860150
+## 22 group2  9.976863
+## 23 group2 10.087848
+## 24 group2  9.964550
+## 25 group2 10.029693
+## 26 group2 10.084950
+## 27 group2  9.920666
+## 28 group2  9.856344
+## 29 group2 10.021449
+## 30 group2 10.039757
+## 31 group2  9.973460
+## 32 group2 10.151909
+## 33 group2 10.082908
+## 34 group2  9.976163
+## 35 group2 10.065276
+## 36 group2  9.940563
+## 37 group2  9.893560
+## 38 group2 10.268610
+## 39 group2  9.929510
+## 40 group2 10.009485
+## 41 group3 14.908657
+## 42 group3 15.022520
+## 43 group3 14.843476
+## 44 group3 15.200429
+## 45 group3 15.120887
+## 46 group3 15.321163
+## 47 group3 15.014699
+## 48 group3 14.951508
+## 49 group3 14.918244
+## 50 group3 14.991522
+## 51 group3 15.040520
+## 52 group3 14.847455
+## 53 group3 14.895838
+## 54 group3 14.976620
+## 55 group3 14.909054
+## 56 group3 15.157215
+## 57 group3 14.998971
+## 58 group3 15.110812
+## 59 group3 15.112512
+## 60 group3 14.920778</code></pre>
 </div>
 <div id="b.-write-a-custom-function-that-1-reshuffles-the-response-variable-and-2-calculates-the-mean-of-each-group-in-the-reshuffled-data.-store-the-means-in-a-vector-of-length-3." class="section level5">
 <h5>b. Write a custom function that 1) reshuffles the response variable, and 2) calculates the mean of each group in the reshuffled data. Store the means in a vector of length 3.</h5>
@@ -296,7 +296,7 @@ a.sourceLine {
 <span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>shuff_means <span class="ot">=</span> <span class="fu">shuffle_calcmeans</span>()   </span>
 <span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(shuff_means)</span></code></pre></div>
-<pre><code>## [1]  9.993089  9.710254 10.263911</code></pre>
+<pre><code>## [1] 10.276991  9.257257 10.490310</code></pre>
 </div>
 <div id="c.-use-a-for-loop-to-repeat-the-function-in-b-100-times.-store-the-results-in-a-data-frame-that-has-1-column-indicating-the-replicate-number-and-1-column-for-each-new-group-mean-for-a-total-of-4-columns." class="section level5">
 <h5>c. Use a for loop to repeat the function in b 100 times. Store the results in a data frame that has 1 column indicating the replicate number and 1 column for each new group mean, for a total of 4 columns.</h5>
@@ -304,23 +304,125 @@ a.sourceLine {
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  </span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>){</span>
 <span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>  hun_shuff_df[i,] <span class="ot">=</span> <span class="fu">c</span>(i,<span class="fu">shuffle_calcmeans</span>())</span>
-<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(hun_shuff_df)</span></code></pre></div>
+<pre><code>##     replicate group1_mean group2_mean group3_mean
+## 1           1   10.777158    9.499201    9.748198
+## 2           2   10.008137    9.257162   10.759259
+## 3           3    9.256905   10.257508   10.510144
+## 4           4    9.252882   11.275017    9.496660
+## 5           5   10.022146    9.769780   10.232632
+## 6           6   10.511696    8.757700   10.755162
+## 7           7   10.747908    9.757068    9.519581
+## 8           8    9.731820   10.539387    9.753351
+## 9           9   10.972761    9.015553   10.036245
+## 10         10   10.772353    8.757419   10.494785
+## 11         11   10.255411    9.736462   10.032685
+## 12         12   10.514819    9.262364   10.247375
+## 13         13    8.769344   11.011461   10.243753
+## 14         14    9.983617   11.285327    8.755614
+## 15         15   10.034522   10.253876    9.736160
+## 16         16    9.767875   10.518189    9.738494
+## 17         17   10.506643    9.269779   10.248135
+## 18         18   11.028891   10.024600    8.971067
+## 19         19   10.478422    9.540977   10.005159
+## 20         20    9.786177    9.754658   10.483723
+## 21         21   10.250848    9.742781   10.030929
+## 22         22    9.006050   10.268038   10.750469
+## 23         23   10.033970    8.232939   11.757649
+## 24         24    9.470016    9.557880   10.996661
+## 25         25   10.023156   11.012041    8.989361
+## 26         26    9.521060   10.510344    9.993154
+## 27         27   10.768732    9.493418    9.762407
+## 28         28    9.491365   11.253634    9.279558
+## 29         29   10.784016   10.502790    8.737752
+## 30         30   11.232168    9.276748    9.515642
+## 31         31   10.795203    8.997365   10.231990
+## 32         32   10.011285    9.979769   10.033504
+## 33         33    9.251858   11.012579    9.760121
+## 34         34   10.270220   10.504373    9.249965
+## 35         35    8.750749   10.802049   10.471760
+## 36         36   10.735962    9.487426    9.801169
+## 37         37    9.735751   10.522182    9.766625
+## 38         38   10.718625    9.526638    9.779295
+## 39         39   11.008706    9.024918    9.990934
+## 40         40    9.247790    9.523708   11.253060
+## 41         41   10.290359   10.496257    9.237942
+## 42         42    9.044129   10.267441   10.712987
+## 43         43    9.497272   10.742127    9.785160
+## 44         44   10.751333   10.020119    9.253107
+## 45         45    8.769274   11.492455    9.762829
+## 46         46    8.763727   10.277867   10.982964
+## 47         47   10.005551    8.765424   11.253583
+## 48         48   10.522139    8.971365   10.531053
+## 49         49    9.778260    9.531998   10.714300
+## 50         50   11.017187    9.251032    9.756339
+## 51         51    9.992530   10.247702    9.784325
+## 52         52   10.000544    9.017578   11.006436
+## 53         53    9.295728    9.977489   10.751341
+## 54         54    9.751705    9.744932   10.527920
+## 55         55   10.239788    9.280827   10.503943
+## 56         56   10.246698   10.036184    9.741676
+## 57         57   10.736272   10.279465    9.008822
+## 58         58    9.268998   10.229465   10.526096
+## 59         59    8.997943   10.257686   10.768929
+## 60         60   10.013269    8.227509   11.783780
+## 61         61    9.013959   11.017940    9.992659
+## 62         62   10.010759    9.484200   10.529599
+## 63         63    9.503249   11.223530    9.297779
+## 64         64   10.511335   12.014078    7.499145
+## 65         65    9.265610    9.485394   11.273554
+## 66         66   10.511786    9.281374   10.231398
+## 67         67   10.747950    9.017396   10.259212
+## 68         68   10.234124    9.257613   10.532821
+## 69         69    9.271651   10.234326   10.518581
+## 70         70   10.231141   10.036791    9.756626
+## 71         71    9.240569   11.005053    9.778936
+## 72         72    9.260864   10.724352   10.039342
+## 73         73   10.013936   10.016744    9.993878
+## 74         74    9.479796    9.766669   10.778093
+## 75         75   10.525685    8.481500   11.017373
+## 76         76   10.273792    8.245303   11.505463
+## 77         77   10.489259    9.772610    9.762689
+## 78         78    8.769531   11.261781    9.993246
+## 79         79    9.243037   10.050922   10.730599
+## 80         80    9.520720   10.539437    9.964401
+## 81         81    9.000461   10.744668   10.279429
+## 82         82   10.774303    9.497136    9.753120
+## 83         83    9.984155    9.475495   10.564908
+## 84         84    9.736058   10.273469   10.015030
+## 85         85    9.251491   10.278071   10.494996
+## 86         86   10.018504    9.271872   10.734182
+## 87         87    9.495214   10.012202   10.517142
+## 88         88    9.482050    9.511307   11.031201
+## 89         89   10.751731    9.749365    9.523462
+## 90         90    9.785442    9.984990   10.254126
+## 91         91    8.753946   10.507236   10.763375
+## 92         92    9.504293   10.509170   10.011094
+## 93         93    9.525552   10.253465   10.245541
+## 94         94   10.225230   10.258962    9.540366
+## 95         95    8.975701    9.796937   11.251920
+## 96         96    8.999874   10.755151   10.269533
+## 97         97    9.742420   10.760931    9.521207
+## 98         98   11.030628    9.274248    9.719682
+## 99         99   11.282022    8.983479    9.759057
+## 100       100   10.011613   10.215266    9.797679</code></pre>
 </div>
 <div id="d.-use-qplot-to-create-a-histogram-of-the-means-for-each-reshuffled-group.-or-if-you-want-a-challenge-use-ggplot-to-overlay-all-3-histograms-in-the-same-figure.-how-do-the-distributions-of-reshuffled-means-compare-to-the-original-means" class="section level5">
 <h5>d. Use qplot() to create a histogram of the means for each reshuffled group. Or, if you want a challenge, use ggplot() to overlay all 3 histograms in the same figure. How do the distributions of reshuffled means compare to the original means?</h5>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>final_df <span class="ot">=</span> <span class="fu">pivot_longer</span>(hun_shuff_df,<span class="fu">c</span>(<span class="st">&quot;group1_mean&quot;</span>,<span class="st">&quot;group2_mean&quot;</span>,<span class="st">&quot;group3_mean&quot;</span>),<span class="at">names_to=</span><span class="st">&quot;group&quot;</span>,<span class="at">values_to=</span><span class="st">&quot;means&quot;</span>)</span>
-<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>final_df <span class="ot">=</span> <span class="fu">select</span>(final_df,<span class="sc">-</span><span class="st">&quot;replicate&quot;</span>)</span>
-<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>hun_shuff_plot <span class="ot">=</span> <span class="fu">ggplot</span>(final_df,<span class="fu">aes</span>(<span class="at">x=</span>means,<span class="at">fill=</span>group)) <span class="sc">+</span></span>
-<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>(<span class="dv">12</span>) <span class="sc">+</span></span>
-<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">color=</span><span class="st">&#39;#e9ecef&#39;</span>,<span class="at">alpha=</span><span class="fl">0.4</span>,<span class="at">position=</span><span class="st">&#39;identity&#39;</span>,<span class="at">bins=</span><span class="dv">30</span>)</span>
-<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a>hun_shuff_plot</span></code></pre></div>
-<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAqAAAAHgCAMAAABNUi8GAAABEVBMVEUAAAAAADoAAGYAOpAAZmYAZpAAZrYzMzM6AAA6ADo6AGY6OmY6OpA6ZmY6kJA6kLY6kNtNTU1NTW5NTY5NbqtNjshmAABmADpmAGZmOgBmZmZmkJBmtrZmtv9uTU1uTW5uTY5ubk1ubqtujo5uq8huq+R7v8h7wMp9r7aBs7uDx8+M2KaN16OOTU2OTW6OTY6OyP+QOgCQOjqQkDqQkGaQtpCQu4WQ2/+Xwo2Z46+rbk2rbm6r5P+zzPW0y/O2ZgC2tma225C2//+3r9W+ttzA1//Ijk3I///bkDrbtrbb///kq27kyMjk///p7O/r6+vwvLn8yMX/tmb/yI7/25D/5Kv//7b//8j//9v//+T///8679+xAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAUn0lEQVR4nO3dC3/TVpqAcUN3IbPXuhS6c0nbmW5plgFmstNp2g4luwyFLClOG3LD3/+DrI7kY92Ojl7r6Pi8tp/nNwVi6UWO/R9ZNlY8mRMpbpL6ChD5AiipDqCkOoCS6gBKqgMoqW51oHdpW4vgK7gBQOdnq44woGEDvQMAZSDlBgDaGQMaNgDQzhjQsAGAdsaAhg0AtDMGNGwAoJ0xoGEDAO2MAQ0bAGhnDGjYAEA7Y0DDBgDaGQMaNgDQzhjQsAGAdsaAhg0AtDMGNGwAoJ0xoGEDAO2MAQ0bAGhnDGjYAEA7Y0DDBgDaGQMaNgDQzjZ3YFYv5lVK/z0DdPMGZj/anmf/AXT9AdQbQFMHUG8ATR1AvQE0dQD1BtDUAdQbQFMHUG8ATR1AvQE0dQD1BtDUDQB6tkPNnlebpb46cdsWoAr+v762AfagqQOoN4CmDqDeAJo6gHoDaOoA6g2gqQOoN4CmDqDeAJo6gHoDaOoA6g2gqQOoN4CmDqDeAJo6gHoDaOoA6g2gqQOoN4CmDqDeAJo6gHoDaOoA6g2gqQOoN4CmDqDeAJo6gHoDaOoA6g2gqQOoN4CmDqDeAJo6gHoDaOoA6g2gqQOoN4CmDqDeAJo6gHoDaOoA6g2gqQOoN4CmDqDeAJo6gHoDaOoA6g2gqQOoN4CmDqDeAJo6gHoDaOoA6g2gqQOoN4CmDqDeAJo6gHoDaOoA6g2gqQOoN4CmDqDeAJo6gHoDaOoA6g2gqQOoN4CmDqDeAJo6gHoDaOoA6g2gqesBevn56+yXT6fTj9/aiwAa5yql/543EOj1k3sZ0Hf3q5cBNM5VSv89bx7Q0+kXZg/66svqhQCNc5XSf8+bB/Snt+Yh/v3fnlUvBGicq5T+e948oMUx6PXT308/KozeNZ3tULPn1Wapr07cNhXo5WfP5td/em0vYg8a5yql/543Fajp+unyYR6gca5S+u8ZoJs3ANDUCYC+u5c9zP+B10EBmiLJHvR0Or23PAQFaKSrlP573kSgjgAa5yql/54BunkDAE0dQL0BNHUA9QbQ1AHUG0BTB1BvAE0dQL0BNHUA9QbQ1AHUG0BTB1BvAE0dQL0BNHUA9QbQ1AHUG0BTB1BvAE0dQL0BNHUAndWrrwbQ1AF09l01gCoLoAC1AVTlAEBtAFU5AFAbQFUOANQGUJUDALUBVOUAQG0AVTkAUBtAVQ4A1AZQlQMAtQFU5QBAbQBVOQBQG0BVDgDUBlCVAwC1AVTlAEBtAFU5AFAbQFUOANQGUJUDALUBVOUAQG0AVTkAUBtAlQw0TpPzAv2h2sz31zT1AnSUdhLoYodY5Af6yPYw+2/W+msqATRKAAWoDaBKBgDqDqBKBgDqDqBKBgDqDqBKBgDqDqBKBgDqDqBKBgDqDqBKBgDqDqBKBgDqbluAnm16s+fVZo+rzRqrPqw28/w1zxuTG9i2AFXw//WwAfag7gCqZACg7gCqZACg7gCqZACg7gCqZACg7gCqZACg7gCqZACg7gCqZACg7gCqZACg7gCqZACg7gCqZKAB1PtRiD6gP3hO+QToSAG0NPioZdAP9L9qATRKAAWoDaBKBgDqDqBKBgDqDqBKBgDqDqBKBgDqDqBKBgDqDqBKBgDqDqBKBgDqDqBKBgDqDqBKBgDqDqBKBgDqDqBKBgDqDqBKBgDqDqBKBgDqDqBKBgDqDqBKBgDqDqBKBgDqDqBKBgDqDqBKBgDqDqDrG/CfCVcH+lW15qqehQBdR9sK1HsucR2oj1m58KC1EKDrCKAAtQF0fQMAHTDQDfR4Mrn19a2jq0++ntx+MT+fTCYfzudXD/bzXy5+9de9/IIoARSgtk6gx7nKDOiDD97Msz/tZy7vlED3sgvMhVECKEBtXUAv9gy+YwM020/eHJqd5bn5ygI1F5wYuxECKEBtXUDPsx1oSbLgmv1aAt0vFq96fUQBFKC2LqAnDqDZH8tj0KM5QFccAOiAgaF7UICuPgDQAQP+Y9CTBdDKMeiH+bLiGPSYY9BVBgA6YEDwLD4/2lw8i785/ODNzeEkA5rtPHkWv9oAQAcMeF8Hvf0/t18UQO3roJnSyeR35knSb/cmsXwCFKDL/P+SVByJOiqOAGIFUIDavMeg+RFn9+JoARSgts49qHlM734MB+iAAYAOGODNIusbAOiAAYCubwCgAwY2Eejl56/n8/ffT++9Xl4E0NYygMbLD/T6iZH56r75nw2grWUAjZcX6On0i2wPev30WbEnLQJoaxlA4+UF+tNbA/NygXQRQFvLthzozN2qmx+W4Bi0AvSu6WwDmj2uNmssrH+E4UG15qqehfVlzckNrBPoL65UAjVtwR705cuXf39pYw9qUw/06pPiLX2Vf3UFKED1AT2pA92+J0kAdaYc6PFkWfm2gBzm1r3MBFBnyoGWe9BKOdDrJ1v2Qj1AnakHKgugrWUA7eninzreS9pfDejNYfEQ3/XW1DyAtpYB1N/VA68obzWgx5K/B6CtZQD1djL513H2oN1vmq4G0NayHQd6sTf5x8P9i3/+9e0X2R9vHeWP6Nl/N//99WRyZz7/vzeVh/ibw9/uTe5k693JT2oyu0Tzfug72cBfXD/hqQ5U8tZogLaW7TZQw+Zkkv+AEfPH84zpAuihOc/OmKsB/eCN+RlPF786ujncNz8xJx+6dWTOXnac91QFenN4R/BtArS1bLeBnn/wxv78BgPx6pOjJdBsh3diTNWA7tv/FmubS83QYr5R7RhUdHIzQFvLdhuo+bFhC27n5R8tUHNRF9C97LHdHBHsmd8WQ82N1x/iJzyLb6wKUPEedAFstT2oWZjtOsuh5sZ5HRSgtsBjUIOzOAbNL7n9ojjczH+SkxOo+S1bYg48j0V7UFkAbS3bbaDmIfofij3gvHgWn3md/Nt/ZEB/s3he7gZqHrKztc2r7/++PC5obpyHeIDaAl4HdfwreWExOMcetPNnnBQBtLVst4GaY0inmVhA58feV5sA2lq220DNA7rzh4PWgOZP2TtW9OUC6t+FArS1bMeBRs0F9ASgy1UBqu+kOfPDST0BtLXMMbn6nZn+VlV/2rF9Fu//Yc4AbS1zAf3l5xUfDtPfqpuyB+0JoK1l2w70O1cADRkA6ICBDQBq//neF0BbywAar8a7mfIPtfO/pwmgrWUAjVf9/aDFG5r9H7sI0NYygMbL9Y56XqgvVwWoIqDsQQHqKhToRcjHKHEMClBbJKCLc47k17MWz+IBaosEdHEeiPx61uJ1UIDahgLtO+14Xj1hOOS0Y1kAbS3bbaCC044rT2tCTjsuPlP53MG4/m2kvyl7BwA6YGAgUMFpx5X3xwWddlx85jfvZqqsCtBeoP2nHZ9UntaEnXbM66AAbSfcg3aedlx7f3HIacfL10EBulwVoOJj0K7Tjg3AsqDTjotXQM3RqvfbSH9T9g4AdMBAwLN432nHxY/uLp/FDz/tmNdBAepK8DroWk877gmgrWW7DXT9px37A2hr2W4DXf9px/4A2lrWD1RwOk/6W1X9u5lkAbS1rB/oj7U2DSgnzY0+ANABA+pPO5YF0NayLQfKHnT8AYAOGOgE+qMrgIYMAHTAAEDXNwDQAQMAXd8AQAcMAHR9AwAdMADQ9Q0AdMAAQNc3ANABA7GAng/4F85lA4CebUCzx9VmjYV/rzY7qNZc1bOwvqy58Odqs+e1GhvRUiSgnW8mEcUelD2oLeJDvPPteKIAClDbUKCC046rZ3Vy2vEcoIMGBgLtP+34Yq88Bg077VgSQFvLdhuo4LTjiryg045FAbS1bLeBCj7tuHIMGnLasSyAtpbtNlDBpx13AOXTjgG6ykDgMWjXacfm4f3iX8onSXza8RyggwYCnsV7P+34pPrxxGGnHUsCaGvZjgOdc9rxygMAHTAwECinHbvznoCgDegPtRqrDjyVQgtQTjt2VzP4WDnQl7Uaqy6+BfeV7U4N0KgBFKA2gI46AFDpitIBzuocdQCg0hWlA5wXP+oAQKUrSgcAOuoAQKUrSgcAOuoAQKUrSgcAOuoAQKUrSgcAOuoAQKUrSgcAOuoAQKUrSgcAOuoAQKUrSgcAOuoAQKUrSgcAOuoAQKUrSgcAOuoAQKUrSgcAOuoAQKUrSgcAOuoAQKUrSgcAOuoAQKUrSgcAOuoAQKUrSgcAOuoAQKUrSgcAOuoAQKUrSgcAOuqAH+gfqzUX1s9gGwtovRVOmgOop20F+m01h7qDEtZYQH+p1gDq3dkC1BNAAWoD6KgDAJWuKB0A6KgDAJWuKB0A6KgDAJWuKB0A6KgDAJWuKB0A6KgDAJWuKB0A6KgDAJWuKB0A6KgDAJWuKB0A6KgDAJWuKB0A6KgDAJWuKB0A6KgDAJWuKB0A6KgDAJWuKB0A6KgDAJWuKB0A6KgDAJWuKB0A6KgDAJWuKB0A6KgDAJWuKB3YWKCXn06nH7+1XwG0tQyg8ZIAfXe/+hVAW8sAGi8J0FdfVr8CaGsZQOMlAPr+b8/sH++aznTUOC+usbBeY+FBtcZX3lU9yw46Pqyl6MD393iv7BrbVKDXT38//WhpVM8etLqP/KZzz9exW4ywB62fWVw5sbl5anPz73mU97D47RF70FoCoJefPZtf/+m1/RKgzm0ANE7Cl5mun5YP8wB1bQOgcQIoQG2bCvTdvdfzyz/oex0UoCu2rUDnp9PpveUhKEDd2wBonDb4nzoBumIA7QqgAB0aQAFqA+ioAwCVrigdAOioAwCVrigdAOioAwCVrigdAOioAwCVrigdAOioAwCVrigdAOioAwCVrigdAOioAwCVrigdAOioAwCVrigdAOioAwCVrigdAOioAwCVrigdAOioAwCVrigdAOioAwCVrigdAGjggPe8ycaqg4E2WgFo/dMOVwD6VS2A1toooPUzz6t3+cFoQH/p2Eg/0PpXKwAtN+C4sqveSAEDAA0cAKjgRgoYAGjgAEAFN1LAAEADBwAquJECBgAaOABQwY0UMADQwAGACm6kgAGABg4AVHAjBQwANHAAoIIbKWAAoIEDABXcSAEDAA0cAKjgRgoYAGjgAEAFN1LAAEADBwAquJECBgAaOABQwY0UMADQwAGACm6kgAGABg4AVHAjBQwANHAAoIIbKWAAoIEDABXcSAEDAA0cAKjgRgoYAGjgAEAFN1LAAEADBwAquJECBgAaONB1PptKoPVT6EYC6j9TsC+AdjUW0OqJxt8qB1rZQnNZANBHlR7Kz1AuAmhXAAXo0AAKUBtAAwcAClBBAHVuA6BxAihAbQANHAAoQAUB1LkNgMYJoAC1ATRwAKAAFXT3LFWzb6rNDqrNGquusLD+1c+1fH9PfVnz7/F81fP3+G6Bh7V8qw5oW4CyB3Vtgz1onAAKUBtAAwcAClBBAHVuA6BxAihAbQANHAAoQAUB1LkNgMYJoAC1ATRwAKAAFRQVqPfD5IYDbZ9u1wl0+CfNRQHauDo+oL0n1AG0qxWAfpf3uPht8ZVtOND2brET6LcdG0kFtD7oBfqyGkBXCKAAHRpAAWoDaH8ABWg9gALUBtD+AArQegAFqA2g/QEUoPUAClAbQPsDKEDrARSgNoD2B1CA1gMoQG0A7Q+gAK0HUIDaANofQAFaD6AAtQG0P4ACtB5AAWoDaH8ABWg9gALUts1AvZ/R5z9V07fqH2t1nXDZD3SDz+qsD35VawWgvad8zrcc6I+1Grfcz7X9V2MfVV/V7hzyOndnrTu9B2ibUifQLnU6gFa/OGiu6gWa3X7fdNzo5T2rMIACtLxnFQZQgJb3rMIACtDynlUYQAFa3rMKAyhAy3tWYQAFaHnPKgygAC3vWYUBFKDlPaswgAK0vGcVBlCAlveswgAK0PKeVRhAAVreswoDKEDLe1ZhAAVoec8qDKAALe9ZhQEUoOU9qzAJ0PffT++9Xn4FUOc2ABonCdBX983/bAB1bgOgcRIAvX76bH75+XIXClDnNgAaJwFQg9MgzbprOnPkPy+OtOW6D8+2AKgp3YfJbvdA+msEUAZSbgCgnTGgYQNbC1TyJMkfAxo2sLVAJS8z+WNAwwa2F+j1k94X6v0xoGED2wu0HkDjDKS/RgBlIOUGANoZAxo2ANDOGNCwAYB2xoCGDQC0MwY0bACgnTGgYQMA7YwBDRsAaGcMaNgAQDtjQMMGANoZAxo2ANDOGNCwgZ0BSttaBF/BrQ50QPG/8y3YwhZ8CzECqJYtbMG3ECOAatnCFnwLMVoLUKKhAZRUB1BSHUBJdQAl1QGUVBcf6OWn04+e9a8WtoWP30bdgPmxFfWfkhphA/Pqj8eIsoXshpr+OdYWIhUd6PWTP89Po92zxRa+nJ/e718vYAPm+td/fEWEDdjfom3B3BXvIu8sRi860MZPdtrALZxOv1hsIdIertiA/S3eFt5ljzPvv9+wXWh0oOYWeRf1ETg20J/emi1E3EqxAftbxC3Miwe0jSr+MWh27Bb3CDE/iIh6bBUZ6NqOQbNO494X47eGY9AvIx+DmmP//4z6yLU9QCPfExHagmNQU/yj3K0AerppT5G2BmjEu3Zefg/RtrImoJu3/1zLk6TYD/GGTqwXgIryezfiy0xrAnr52cbtP7fjhfp303W8UF//KakRNhAd6KupiWfxROMFUFIdQEl1ACXVAZRUB1BSHUBJdQAl1QGUVAdQUh1ASXUAzbvY+92DyeTDi73JZD/78mSSfWEuP57kF1w9MIv3zXrFBbSuAJp3sXfrKGN5+8X8xPyXfXGxlwk9vjPPv7h6YBbfOrrYy3CeI3SNATQv57j4Zf/qgdl7nt9+cfXJUX7BPL8k+0N2WeprumsBNC/fNdpfzrPd5eIrs7+cGKD543xGF6FrDqB5daCTon1zLHr7f/dKoPObQ45B1xtA8xx70OqlS6CmY7uY1hBA82pArcR5fsh5PmkAXS6mNQTQvBrQ/Im72VEWO8/Jh0ug+b71nD3oGgNoXh1o/jqo2Xtmv986yqQu96Dm8BSf6wygpDqAkuoASqoDKKkOoKQ6gJLqAEqqAyipDqCkOoCS6v4f1dCJ7+BX57IAAAAASUVORK5CYII=" /><!-- --> The reshuffled means are all around 10, whereas the original means were more distinctly different (5,10,15).</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>final_df <span class="ot">=</span> <span class="fu">pivot_longer</span>(hun_shuff_df,<span class="fu">c</span>(<span class="st">&quot;group1_mean&quot;</span>,<span class="st">&quot;group2_mean&quot;</span>,<span class="st">&quot;group3_mean&quot;</span>),<span class="at">names_to=</span><span class="st">&quot;group&quot;</span>,<span class="at">values_to=</span><span class="st">&quot;means&quot;</span>)</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>final_df <span class="ot">=</span> <span class="fu">select</span>(final_df,<span class="sc">-</span><span class="st">&quot;replicate&quot;</span>)</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>hun_shuff_plot <span class="ot">=</span> <span class="fu">ggplot</span>(final_df,<span class="fu">aes</span>(<span class="at">x=</span>means,<span class="at">fill=</span>group)) <span class="sc">+</span></span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>(<span class="dv">12</span>) <span class="sc">+</span></span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">color=</span><span class="st">&#39;#e9ecef&#39;</span>,<span class="at">alpha=</span><span class="fl">0.4</span>,<span class="at">position=</span><span class="st">&#39;identity&#39;</span>,<span class="at">bins=</span><span class="dv">30</span>)</span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a>hun_shuff_plot</span></code></pre></div>
+<p><img src="data:image/png;base64,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" /><!-- --> The reshuffled means are all around 10, whereas the original means were more distinctly different (5,10,15).</p>
 </div>
 </div>
 </article>

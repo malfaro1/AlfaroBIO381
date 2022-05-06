@@ -1,0 +1,44 @@
+---
+title: "Homework 12"
+author: "Maria Alfaro"
+date: "4/13/2022"
+output:
+  prettydoc::html_pretty:
+    theme: leonids
+    highlight: github
+---
+
+[Home Page](index.html)
+
+#### 1. For this exercise, use your newly-developed ggplot chops to create some nice graphs from your own data (If you do not have a good data frame to use for graphics, use one of the many built-in data frames from R (other than mpg, which we are using in class)). Experiment with different themes, theme base sizes, aesthetics, mappings, and faceting. When you are finished, try exporting them to high quality pdfs, jpgs, eps files, or other formats that you would use for submission to a journal.
+
+I used CTD temperature data collected from Lake Champlain. Sorry for the messy coding; I tried to find the best way to wrangle data from different Excel sheets without manipulating it in Excel, and this was the best solution I could find.
+
+```{r}
+library(ggplot2)
+library(tidyverse)
+library(readxl)
+
+
+Sep_09_CTD = read_xlsx("CTD_090921.xlsx", sheet = "CTD_090921")
+Sep_13ML_CTD = read_xlsx("CTD_090921.xlsx", sheet = "CTD_091321_ML")
+Sep_13SB_CTD = read_xlsx("CTD_090921.xlsx", sheet = "CTD_091321_SB")
+
+LC_Dates = c(rep("09/09/21",37),rep("09/13/21 ML",39),rep("09/13/21 SB",34))
+
+LC_Depths = c(Sep_09_CTD$depth_m, Sep_13ML_CTD$depth_m, Sep_13SB_CTD$depth_m)
+
+LC_Temps = c(Sep_09_CTD$temp_C, Sep_13ML_CTD$temp_C, Sep_13SB_CTD$temp_C)
+
+LC_Temp_DF = data.frame(Date=LC_Dates,Depth=LC_Depths,Temperature=LC_Temps)
+
+LC_Temp_Plot = ggplot(LC_Temp_DF, aes(x=Temperature, y=Depth, color=Date)) +
+  geom_path(size=1.2) +
+  scale_y_reverse() +
+  labs(x="Temperature (deg C)", y="Depth (m)") +
+  theme_classic()
+
+LC_Temp_Plot
+
+```
+
